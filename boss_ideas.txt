@@ -8,8 +8,8 @@ like: "You damned sea lions are eating up all the mackerel, ruining my business.
 over-popluation problem, starting with you!" SSL says something back, owner pulls out a shotgun, then they go at it.
 
 The boat is protected by a crust of barnicles, each of which is poisonous to SSL. SSL has to break through the crust to 
-damage the hull by spitting at it (or by tail flipper attack?). Some of the barnacles release food that can be spitting 
-ammunition for SSL. Or SSL can attack the owner directly, if he can jump into the air and spit at him. 
+damage the hull by spitting at it (or by tail flipper attack?). Some of the barnacles release food when destroyed that 
+can be spitting ammunition for SSL. Or SSL can attack the owner directly, if he can jump into the air and spit at him. 
 
 The owner can shoot at SSL with his shotgun. He also has a first-mate which throws stuff at SSL for less damage. When the 
 hull gets breached, the owner will man a harpoon that inflicts a huge amount of damage on SSL. 
