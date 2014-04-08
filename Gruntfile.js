@@ -277,8 +277,16 @@ module.exports = function (grunt) {
                         'images/{,*/}*.webp',
                         '{,*/}*.html',
                         'styles/fonts/{,*/}*.*',
-                        'bower_components/bootstrap/dist/fonts/*.*'
                     ]
+                },{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= config.app %>',
+                    dest: '<%= config.dist %>/fonts',
+                    src: [
+                        'bower_components/bootstrap/dist/fonts/*.*'
+                    ],
+                    flatten: true
                 }]
             },
             styles: {
