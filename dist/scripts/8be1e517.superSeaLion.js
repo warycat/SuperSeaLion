@@ -1,5 +1,5 @@
 // create an array of assets to load
-
+console.log('supersealion');
 var stage = new PIXI.Stage(0xFFFFFF, true);
 var postition = 0;
 var background;
