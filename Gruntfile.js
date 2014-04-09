@@ -275,7 +275,7 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
-            'images/{,*/}*.webp',
+            'images/{,*/}*.*',
             '{,*/}*.html',
             'styles/fonts/{,*/}*.*',
             'scripts/{,*/}*.*'
@@ -360,7 +360,7 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'copy:dist',
-    'rev',
+    // 'rev',
     'usemin',
     'htmlmin'
   ]);
