@@ -24,45 +24,9 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
-        <div class="container">
-            <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="//github.com/warycat/SuperSeaLion/wiki">Wiki</a></li>
-                    <li><a href="//github.com/warycat/SuperSeaLion/issues">Issues</a></li>
-                    <li><a href="//github.com/warycat/SuperSeaLion">Repo</a></li>
-                </ul>
-                <h3 class="text-muted"><a href='//warycat.github.io/SuperSeaLion'>Super Sea Lion</a></h3>
-            </div>
-
-            <div class="jumbotron">
-                <h1>Super Sea Lion</h1>
-                <p class="lead">A 2D Web Game Made for CS537 Software Engineering</p>
-                <p><a class="btn btn-lg btn-success" href="superSeaLion.html">Launch Game <span class="glyphicon glyphicon-plane"></span></a></p>
-            </div>
-
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>Credits</h4>
-                    <p><b>Lead Developer: </b><a href='//github.com/warycat'>Yinchu Xia</a></p>
-                    <p><b>Animation Developer: </b><a href='//github.com/yxun'>Yuanlin Xu</a></p>
-                    <p><b>AI Developer: </b><a href='//github.com/detroitteatime'>Mark Sargent</a></p>
-                    <p><b>Level Developer: </b><a href='//github.com/too87'>Chootiraka Niraporn</a></p>
-                    <h4>Game Design Document</h4>
-                    <p>For more information, please visit our project <a href='//github.com/warycat/SuperSeaLion/wiki'>wiki</a>.</p>
-                    <h4>Development Tutorials</h4>
-                    <p>We use <a href='//github.com/warycat/SuperSeaLion/issues'>issues</a> to publish tutorials for team members</p>
-                </div>
-            </div>
-
-            <div class="footer">
-                <p><span class="glyphicon glyphicon-heart"></span> from the Super Sea Lion team</p>
-            </div>
-
+        <div align="center">
+            <canvas id="game-canvas" width="512" height="384"></canvas>
         </div>
-
-
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -98,6 +62,8 @@
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
+        <script src="scripts/vendor/stats.min.js">
+        <script src="scripts/superSeaLion.js">
         <!-- endbuild -->
 </body>
 </html>
