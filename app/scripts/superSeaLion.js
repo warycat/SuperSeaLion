@@ -1,60 +1,121 @@
-'use strict';
-console.log('super sea lion');
-// var SSL = (function () {
-//   var WIDTH = 640;
-//   var HEIGHT = 960;
-//   return {
-//     WIDTH: WIDTH,
-//     HEIGHT: HEIGHT
-//   }
-// })();
+// create an array of assets to load
 
-// var Renderer = (function () {
-//   var WIDTH = SSL.WIDTH;
-//   var HEIGHT = SSL.HEIGHT;
+var stage = new PIXI.Stage(0xFFFFFF, true);
+var postition = 0;
+var background;
+var background2;
+var renderer = new PIXI.autoDetectRenderer(1024, 640);
 
-//   var renderer = PIXI.autoDetectRenderer(WIDTH, HEIGHT);
-//   document.body.appendChild(renderer.view);
+function animate() {
 
-//   var stats = new Stats();
-//   stats.domElement.style.position = 'absolute';
-//   stats.domElement.style.top = '0px';
-//   stats.domElement.style.right = '0px';
-//   stats.domElement.style.zIndex = 1000;
-//   document.body.appendChild(stats.domElement);
+  postition += 10;
 
-//   function render() {
-//     requestAnimationFrame(render);
-//     Menu.render();
-//     Game.render();
-//     // renderer.render(Wolf.stage);
-//     stats.update();
-//   }
+  background.position.x = -(postition * 0.6);
+  background.position.x %= 1286 * 2;
+  if (background.position.x < 0) background.position.x += 1286 * 2;
+  background.position.x -= 1286;
 
-//   function orientationchange(e) {
-//     var width = $(window).width();
-//     var height = $(window).height();
-//     var w = Wolf.canvasWidth;
-//     var h = Wolf.canvasHeight;
-//     $('canvas').css({
-//       position: 'absolute',
-//       left: (width - w) / 2,
-//       top: (height - h) / 2,
-//       width: w,
-//       height: h
-//     });
-//   }
+  background2.position.x = -(postition * 0.6) + 1286;
+  background2.position.x %= 1286 * 2;
+  if (background2.position.x < 0) background2.position.x += 1286 * 2;
+  background2.position.x -= 1286;
 
-//   function init() {
-//     window.addEventListener('orientationchange', orientationchange);
-//     window.addEventListener('resize', orientationchange);
-//     orientationchange();
-//   }
+  foreground.position.x = -postition;
+  foreground.position.x %= 1286 * 2;
+  if (foreground.position.x < 0) foreground.position.x += 1286 * 2;
+  foreground.position.x -= 1286;
 
-//   init();
+  foreground2.position.x = -postition + 1286;
+  foreground2.position.x %= 1286 * 2;
+  if (foreground2.position.x < 0) foreground2.position.x += 1286 * 2;
+  foreground2.position.x -= 1286;
 
-//   return {
-//     render: render
-//   };
+  requestAnimFrame(animate);
 
-// })();
+
+  renderer.render(stage);
+}
+
+function onAssetsLoaded() {
+  background = PIXI.Sprite.fromImage("images/iP4_BGtile.jpg");
+  background2 = PIXI.Sprite.fromImage("images/iP4_BGtile.jpg");
+  stage.addChild(background);
+  stage.addChild(background2);
+
+  foreground = PIXI.Sprite.fromImage("images/iP4_ground.png");
+  foreground2 = PIXI.Sprite.fromImage("images/iP4_ground.png");
+  stage.addChild(foreground);
+  stage.addChild(foreground2);
+  foreground.position.y = foreground2.position.y = 640 - foreground2.height;
+
+  var pixie = new PIXI.Spine("images/PixieSpineData.json");
+
+  var scale = 0.3; //window.innerHeight / 700;
+
+  pixie.position.x = 1024 / 3;
+  pixie.position.y = 500;
+
+  pixie.scale.x = pixie.scale.y = scale;
+
+
+  //dragon.state.setAnimationByName("running", true);
+
+  stage.addChild(pixie);
+
+  pixie.stateData.setMixByName("running", "jump", 0.2);
+  pixie.stateData.setMixByName("jump", "running", 0.4);
+
+  pixie.state.setAnimationByName("running", true);
+
+
+
+  stage.mousedown = stage.touchstart = function () {
+    pixie.state.setAnimationByName("jump", false);
+    pixie.state.addAnimationByName("running", true);
+  };
+
+  var logo = PIXI.Sprite.fromImage("images/logo_small.png");
+  stage.addChild(logo);
+
+
+  logo.anchor.x = 1;
+  logo.position.x = 1024;
+  logo.scale.x = logo.scale.y = 0.5;
+  logo.position.y = 640 - 70;
+  logo.setInteractive(true);
+  logo.buttonMode = true;
+  logo.click = logo.tap = function () {
+    window.open("https://github.com/GoodBoyDigital/pixi.js", "_blank");
+  };
+
+  requestAnimFrame(animate);
+}
+
+
+var assetsToLoader = ["images/logo_small.png", "images/PixieSpineData.json", "images/Pixie.json", "images/iP4_BGtile.jpg", "images/iP4_ground.png"];
+
+// create a new loader
+loader = new PIXI.AssetLoader(assetsToLoader);
+
+// use callback
+loader.onComplete = onAssetsLoaded;
+
+//begin load
+loader.load();
+
+// create an new instance of a pixi stage
+
+// create a renderer instance
+
+// set the canvas width and height to fill the screen
+renderer.view.style.display = "block";
+renderer.view.style.width = "100%";
+renderer.view.style.height = "100%";
+
+// add render view to DOM
+document.body.appendChild(renderer.view);
+
+
+
+
+
