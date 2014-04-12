@@ -1,0 +1,44 @@
+{
+
+    "bosses":
+    [
+        {
+            "name": "Evil Aquarium Master",
+            
+            "battle_messages":
+            [
+                {
+                    "message": "So, I've heard a lot about you, Super Sea Lion!. 
+                    You beat all my lieutenants, but it's gonna take a lot more 
+                    than fancy flippin' and spicy lobster shells to take me down!"
+                },
+                {
+                    "message": "Sharks! Get him!"
+                },
+                {   
+                    "message": "Kracken, get him!"
+                },
+                {
+                    "message": "Men, harpoon him!"
+                }
+            ],
+            "hp": 20,
+            "damage_low_range": 2,
+            "damage_medium_range": 5,
+            "damage_high_range": 8
+           
+        }
+    ],
+    "enemies":
+    [
+        {
+            "name": "Jellyfish",
+            "speed":0,
+            "hp": 2,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 1
+           
+        }
+    ]
+}
