@@ -1,0 +1,169 @@
+{
+
+    "bosses":
+    [
+        {
+            "name": "Evil Aquarium Master",
+            
+            "battle_messages":
+            [
+                {
+                    "message": "So, I've heard a lot about you, Super Sea Lion!. 
+                    You beat all my lieutenants, but it's gonna take a lot more 
+                    than fancy flippin' and spicy lobster shells to take me down!"
+                },
+                {
+                    "message": "Sharks! Get him!"
+                },
+                {   
+                    "message": "Kracken, get him!"
+                },
+                {
+                    "message": "Men, harpoon him!"
+                }
+            ],
+            "hp": 20,
+            "damage_low_range": 2,
+            "damage_medium_range": 5,
+            "damage_high_range": 8,
+            "special_attack": "summon_lieutenants" //not sure what to write here, as it calls others to attack SSL
+        },
+        
+        {
+            "name": "The Catcher",
+            
+            "battle_messages":
+            [
+                {
+                    "message": "You've come a long way, but your quest ends here!"
+                }
+              
+            ],
+            "hp": 12,
+            "damage_low_range": 1,
+            "damage_medium_range": 3,
+            "damage_high_range": 6
+           
+        },
+        
+        {
+            "name": "Submarine",
+            
+            "battle_messages":
+            [
+                {
+                    "message": "Submarine: Submarine to base, Super Sea Lion spotted."
+                },
+                {
+                    "message": "Base: Destroy Him!"
+                },
+                {   
+                    "message": "Submarine: Yes sir, will destroy."
+                }
+            ],
+            "hp": 10,
+            "damage_low_range": 0, // 0 indicates there is no low_range attack. 
+            "damage_medium_range": 2,
+            "damage_high_range": 4
+           
+        },
+             {
+            "name": "Kracken",
+            
+            "battle_messages":
+            [
+                {
+                    "message": "What a beautiful sea lion, let me look into your beautiful eyes!"
+                }
+              
+            ],
+            "hp": 8,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 0,
+            "special_attack": "summon_squid"
+           
+        },
+
+         {
+            "name": "Sharky",
+            
+            "battle_messages":
+            [
+                {
+                    "message": "Ah, sea lion, my favourite mid-day snack!
+                     And I see you ate some spicy lobster, ooooh, what a treat!"
+                }
+              
+            ],
+            "hp": 7,
+            "damage_low_range": 0,
+            "damage_medium_range": 2,
+            "damage_high_range": 4
+           
+        },
+
+        {
+            "name": "Traitor",
+
+            "battle_messages":
+            [
+                {
+                    "message": "Traitor: Friend, you are on the wrong side! 
+                    Come over to our side, and we can make your life very comfortable."
+                },
+                {
+                    "message": "Our Hero: No way will I join you. I fight for the freedom of all sea life!"
+                },
+                {   
+                    "message": "Traitor: Then we have to do what we have to do!"
+                }
+            ],
+            "hp": 0,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 0,
+            "special_attack": "summon_enemies"
+           
+        },
+
+
+        {
+            "name": "Killer Lobster",
+
+            "battle_messages":
+            [
+                {
+                    "message": "Killer Lobster: You like eating my cousins and children don't you! 
+                    Don't you know that we feel pain too!"
+                },
+                {
+                    "message": "Our Hero: I am sorry, I had to. I didn't know you feel pain."
+                },
+                {   
+                    "message": "Killer Lobster: Well, now YOU will be the one feeling pain."
+                }
+            ],
+            "hp": 5,
+            "damage_low_range": 0,
+            "damage_medium_range": 1,
+            "damage_high_range": 3,
+            "special": "leave_spit_booster"
+           
+        }
+
+
+    ],
+    "enemies":
+    [
+        {
+            "name": "Jellyfish",
+            "speed":0,
+            "hp": 1,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 1
+           
+        }
+    ]
+}
