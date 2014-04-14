@@ -8,9 +8,7 @@
             "battle_messages":
             [
                 {
-                    "message": "So, I've heard a lot about you, Super Sea Lion!. 
-                    You beat all my lieutenants, but it's gonna take a lot more 
-                    than fancy flippin' and spicy lobster shells to take me down!"
+                    "message": "So, I've heard a lot about you, Super Sea Lion!. You beat all my lieutenants, but it's gonna take a lot more than fancy flippin' and spicy lobster shells to take me down!"
                 },
                 {
                     "message": "Sharks! Get him!"
@@ -26,7 +24,7 @@
             "damage_low_range": 2,
             "damage_medium_range": 5,
             "damage_high_range": 8,
-            "special_attack": "summon_lieutenants" //not sure what to write here, as it calls others to attack SSL
+            "special_attack": "summon_lieutenants" 
         },
         
         {
@@ -62,7 +60,7 @@
                 }
             ],
             "hp": 10,
-            "damage_low_range": 0, // 0 indicates there is no low_range attack. 
+            "damage_low_range": 0,  
             "damage_medium_range": 2,
             "damage_high_range": 4
            
@@ -91,8 +89,7 @@
             "battle_messages":
             [
                 {
-                    "message": "Ah, sea lion, my favourite mid-day snack!
-                     And I see you ate some spicy lobster, ooooh, what a treat!"
+                    "message": "Ah, sea lion, my favourite mid-day snack! And I see you ate some spicy lobster, ooooh, what a treat!"
                 }
               
             ],
@@ -109,8 +106,7 @@
             "battle_messages":
             [
                 {
-                    "message": "Traitor: Friend, you are on the wrong side! 
-                    Come over to our side, and we can make your life very comfortable."
+                    "message": "Traitor: Friend, you are on the wrong side! Come over to our side, and we can make your life very comfortable."
                 },
                 {
                     "message": "Our Hero: No way will I join you. I fight for the freedom of all sea life!"
@@ -134,8 +130,7 @@
             "battle_messages":
             [
                 {
-                    "message": "Killer Lobster: You like eating my cousins and children don't you! 
-                    Don't you know that we feel pain too!"
+                    "message": "Killer Lobster: You like eating my cousins and children don't you! Don't you know that we feel pain too!"
                 },
                 {
                     "message": "Our Hero: I am sorry, I had to. I didn't know you feel pain."
@@ -158,11 +153,116 @@
     [
         {
             "name": "Jellyfish",
-            "speed":0,
+            "location_category": "sea",
+            "speed":"none",
             "hp": 1,
             "damage_low_range": 0,
             "damage_medium_range": 0,
             "damage_high_range": 1
+           
+        },
+         {
+            "name": "Octopus",
+            "location_category": "sea",
+            "speed":"none",
+            "hp": 1,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 1
+           
+        },
+           {
+            "name": "Swordfish",
+            "location_category": "sea",
+            "speed":"fast",
+            "hp": 1,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 1
+           
+        },
+           {
+            "name": "Evil Scuba Diver",
+            "location_category": "sea",
+            "speed":"slow",
+            "hp": 1,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 1
+           
+        },
+           {
+            "name": "Surfboard Paddler",
+            "location_category": "sea",
+            "speed":"slow",
+            "hp": 1,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 1
+           
+        },
+           {
+            "name": "Giant Clam",
+            "location_category": "sea",
+            "speed":"none",
+            "hp": 1,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 0,
+            "special": "encase"
+           
+        },
+           {
+            "name": "Drunken Teenager",
+            "location_category": "land",
+            "speed":0,
+            "hp": 1,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 1,
+            "attack_range": "horizontal_all"
+           
+        },
+           {
+            "name": "Komodo Dragon",
+            "location_category": ["sea", "land"],
+            "speed":"medium",
+            "hp": 1,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 1
+           
+        },
+           {
+            "name": "Coyote",
+            "location_category": "land",
+            "speed":"fast",
+            "hp": 1,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 1
+           
+        },
+           {
+            "name": "Walrus",
+            "location_category": "land",
+            "speed":"slow",
+            "hp": 2,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 2
+           
+        },
+        
+        {
+            "name": "Seagull",
+            "location_category": "air",
+            "speed":"fast",
+            "hp": 1,
+            "damage_low_range": 0,
+            "damage_medium_range": 0,
+            "damage_high_range": 1,
+            "special":"poop"
            
         }
     ]
