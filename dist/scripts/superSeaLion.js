@@ -1,5 +1,8 @@
 // create an array of assets to load
 console.log('supersealion');
+$.getJSON('/bosses_and_enemies.json',function(data){
+  console.log(data);
+});
 var stage = new PIXI.Stage(0xFFFFFF, true);
 var postition = 0;
 var background;
