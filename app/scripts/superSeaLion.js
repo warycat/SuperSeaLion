@@ -1,13 +1,60 @@
 // create an array of assets to load
 console.log('supersealion');
-$.getJSON('/bosses_and_enemies.json',function(data){
-  console.log(data);
-});
+
+var Screen = (function(){
+  var width = 960;
+  var height = 640;
+
+  return {
+    width:width
+  , height:height
+  };
+})();
+
+var SSL = (function(){
+  var width = 100;
+  var height = 100;
+  var health = 10;
+  var speed = {
+    x:10
+  , y:10
+  };
+  var center = {
+    x:0
+  , y:0
+  };
+
+  return {
+    width:width
+  , height:height
+  , health:health
+  , center:center
+  };
+})();
+
+var ViewPort = (function(){
+  var width = 960;
+  var height = 640;
+  var scale = 1;
+  var center = {
+    x:0
+  , y:0
+  };
+})();
+
+
+// var enemies = [{name:'fish'},{name:'crab'}];
+// _.each(enemies,function(enemy){
+//   console.log(enemy.name);
+// });
+// $.getJSON('/bosses_and_enemies.json',function(data){
+//   console.log(data);
+// });
 var stage = new PIXI.Stage(0xFFFFFF, true);
 var postition = 0;
 var background;
 var background2;
-var renderer = new PIXI.autoDetectRenderer(1024, 640);
+var renderer = new PIXI.autoDetectRenderer(Screen.width, Screen.height);
 
 function animate() {
 
@@ -112,8 +159,9 @@ loader.load();
 
 // set the canvas width and height to fill the screen
 renderer.view.style.display = "block";
-renderer.view.style.width = "100%";
-renderer.view.style.height = "100%";
+renderer.view.style.margin = "auto";
+renderer.view.style.width = Screen.width;
+renderer.view.style.height = Screen.width;
 
 // add render view to DOM
 document.body.appendChild(renderer.view);
