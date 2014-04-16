@@ -17,5 +17,6 @@
     "strict": false,
     "trailing": true,
     "smarttabs": true,
-    "jquery": true
+    "jquery": true,
+    "laxcomma": true
 }
