@@ -98,9 +98,29 @@ var Renderer = (function(){
   };
 })();
 
-
 Input.init();
-Renderer.play();
+
+var Loader = (function(){
+  var assetsToLoader = ["images/logo_small.png", "images/PixieSpineData.json", "images/Pixie.json", "images/iP4_BGtile.jpg", "images/iP4_ground.png"];
+  var loader = new PIXI.AssetLoader(assetsToLoader);
+  loader.onComplete = function() {
+    console.log('loaded');
+    Renderer.play();
+  };
+
+  function load(){
+    loader.load();
+  }
+  
+  return {
+    load:load
+  };
+
+})();
+
+Loader.load();
+
+
 
 // var enemies = [{name:'fish'},{name:'crab'}];
 // _.each(enemies,function(enemy){
