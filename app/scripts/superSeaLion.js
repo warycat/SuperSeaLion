@@ -87,7 +87,7 @@ var Renderer = (function(){
 
   function animate(){
     if(paused)return;
-    if(Input.up())console.log('.');
+    if(Input.keys.A)console.log('.');
     renderer.render(Screen.stage);
     requestAnimFrame(animate);
   }
