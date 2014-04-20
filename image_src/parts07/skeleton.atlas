@@ -4,30 +4,30 @@ format: RGBA8888
 filter: Linear,Linear
 repeat: none
 arm01
-  rotate: false
-  xy: 335, 106
-  size: 102, 93
+  rotate: true
+  xy: 363, 16
+  size: 89, 90
   orig: 104, 93
-  offset: 0, 0
+  offset: 1, 0
   index: -1
 body
   rotate: false
   xy: 2, 2
-  size: 219, 197
+  size: 240, 197
   orig: 260, 240
   offset: 9, 15
   index: -1
 head01
   rotate: false
-  xy: 335, 12
+  xy: 363, 107
   size: 98, 92
   orig: 98, 92
   offset: 0, 0
   index: -1
 tail01
   rotate: false
-  xy: 223, 52
-  size: 110, 147
-  orig: 110, 148
-  offset: 0, 1
+  xy: 244, 51
+  size: 117, 148
+  orig: 209, 148
+  offset: 50, 0
   index: -1
