@@ -24,7 +24,17 @@
             "damage_low_range": 2,
             "damage_medium_range": 5,
             "damage_high_range": 8,
-            "special_attack": "summon_lieutenants" 
+            "special_attack": "summon_lieutenants",
+            "states":[
+                {
+                    "name": "start",
+                    "transition_entry": "encounter",
+                    "action": "summon_sharks",
+                    "motion": "passive"
+                }
+                
+                
+                ]
         },
         
         {
