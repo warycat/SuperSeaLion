@@ -5,7 +5,7 @@ filter: Linear,Linear
 repeat: none
 arm01
   rotate: true
-  xy: 363, 16
+  xy: 359, 15
   size: 89, 90
   orig: 104, 93
   offset: 1, 0
@@ -13,20 +13,20 @@ arm01
 body
   rotate: false
   xy: 2, 2
-  size: 240, 197
+  size: 236, 196
   orig: 260, 240
-  offset: 9, 15
+  offset: 13, 16
   index: -1
 head01
   rotate: false
-  xy: 363, 107
+  xy: 359, 106
   size: 98, 92
   orig: 98, 92
   offset: 0, 0
   index: -1
 tail01
   rotate: false
-  xy: 244, 51
+  xy: 240, 50
   size: 117, 148
   orig: 209, 148
   offset: 50, 0
