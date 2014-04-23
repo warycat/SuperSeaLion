@@ -52,7 +52,7 @@
                     "actions": [
                         "attack_tail",
                         "attack_trident",
-                        "attack_tongue"
+                        "attack_net"
                     ],
                     "motion": "aggressive_mild"
                 }
