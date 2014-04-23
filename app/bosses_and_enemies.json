@@ -25,6 +25,7 @@
                 {
                     "name": "start",
                     "transition_entry": "encounter",
+                    "transition_exit": "sharks_defeated",
                     "actions": [
                         "summon_sharks"
                     ],
@@ -33,6 +34,7 @@
                 {
                     "name": "summon_kraken",
                     "transition_entry": "sharks_defeated",
+                    "transition_exit": "kraken_defeated",
                     "actions": [
                         "summon_kraken"
                     ],
@@ -41,6 +43,7 @@
                 {
                     "name": "summon_men",
                     "transition_entry": "kracken_defeated",
+                    "transition_exit": "men_defeated",
                     "actions": [
                         "summon_men"
                     ],
