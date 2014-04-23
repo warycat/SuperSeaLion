@@ -10,7 +10,7 @@
                     "message": "Sharks! Get him!"
                 },
                 {
-                    "message": "Kracken, get him!"
+                    "message": "Kraken, get him!"
                 },
                 {
                     "message": "Men, harpoon him!"
@@ -31,10 +31,10 @@
                     "motion": "passive"
                 },
                 {
-                    "name": "summon_kracken",
+                    "name": "summon_kraken",
                     "transition_entry": "sharks_defeated",
                     "actions": [
-                        "summon_kracken"
+                        "summon_kraken"
                     ],
                     "motion": "passive"
                 },
