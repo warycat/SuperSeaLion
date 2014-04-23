@@ -5,29 +5,29 @@ filter: Linear,Linear
 repeat: none
 arm01
   rotate: true
-  xy: 363, 16
+  xy: 240, 2
   size: 89, 90
   orig: 104, 93
   offset: 1, 0
   index: -1
 body
   rotate: false
-  xy: 2, 2
-  size: 240, 197
+  xy: 2, 22
+  size: 236, 196
   orig: 260, 240
-  offset: 9, 15
+  offset: 13, 16
   index: -1
 head01
   rotate: false
-  xy: 363, 107
+  xy: 359, 126
   size: 98, 92
   orig: 98, 92
   offset: 0, 0
   index: -1
 tail01
   rotate: false
-  xy: 244, 51
-  size: 117, 148
+  xy: 240, 93
+  size: 117, 125
   orig: 209, 148
-  offset: 50, 0
+  offset: 50, 23
   index: -1
