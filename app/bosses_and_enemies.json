@@ -54,7 +54,7 @@
                         "attack_trident",
                         "attack_tongue"
                     ],
-                    "motion": "passive"
+                    "motion": "aggressive_mild"
                 }
             ]
         },
