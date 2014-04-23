@@ -163,7 +163,8 @@
             "hp": 1,
             "damage_low_range": 0,
             "damage_medium_range": 0,
-            "damage_high_range": 1
+            "damage_high_range": 1,
+            "actions": ["bob_up_and_down"]
         },
         {
             "name": "Octopus",
@@ -172,7 +173,9 @@
             "hp": 1,
             "damage_low_range": 0,
             "damage_medium_range": 0,
-            "damage_high_range": 1
+            "damage_high_range": 1,
+            "actions": ["tentacle_grab", "bob_up_and_down"],
+            "moving_parts":["tentacle"]
         },
         {
             "name": "Swordfish",
@@ -181,7 +184,9 @@
             "hp": 1,
             "damage_low_range": 0,
             "damage_medium_range": 0,
-            "damage_high_range": 1
+            "damage_high_range": 1,
+            "actions":["jab", "swim"]
+            
         },
         {
             "name": "Evil Scuba Diver",
@@ -190,7 +195,8 @@
             "hp": 1,
             "damage_low_range": 0,
             "damage_medium_range": 0,
-            "damage_high_range": 1
+            "damage_high_range": 1,
+            "actions":["punch", "shoot_crossbow", "float"]
         },
         {
             "name": "Surfboard Paddler",
@@ -199,7 +205,8 @@
             "hp": 1,
             "damage_low_range": 0,
             "damage_medium_range": 0,
-            "damage_high_range": 1
+            "damage_high_range": 1,
+            "actions":["paddle_wack", "paddle_surf"]
         },
         {
             "name": "Giant Clam",
@@ -210,6 +217,7 @@
             "damage_medium_range": 0,
             "damage_high_range": 0,
             "special": "encase"
+            "actions":["clamp"]
         },
         {
             "name": "Drunken Teenager",
@@ -219,7 +227,8 @@
             "damage_low_range": 0,
             "damage_medium_range": 0,
             "damage_high_range": 1,
-            "attack_range": "horizontal_all"
+            "attack_range": "horizontal_all",
+            "actions":["walk", "throw_bottle"]
         },
         {
             "name": "Komodo Dragon",
@@ -231,7 +240,8 @@
             "hp": 1,
             "damage_low_range": 0,
             "damage_medium_range": 0,
-            "damage_high_range": 1
+            "damage_high_range": 1,
+            "actions":["walk", "charge", "bite"]
         },
         {
             "name": "Coyote",
@@ -240,7 +250,8 @@
             "hp": 1,
             "damage_low_range": 0,
             "damage_medium_range": 0,
-            "damage_high_range": 1
+            "damage_high_range": 1,
+            "actions":["walk", "charge", "bite"]
         },
         {
             "name": "Walrus",
