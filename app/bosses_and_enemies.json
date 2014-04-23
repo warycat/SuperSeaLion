@@ -216,7 +216,7 @@
             "damage_low_range": 0,
             "damage_medium_range": 0,
             "damage_high_range": 0,
-            "special": "encase"
+            "special": "encase",
             "actions":["clamp"]
         },
         {
