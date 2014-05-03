@@ -5,10 +5,6 @@ var Screen = (function(){
   var width = 480;
   var height = 320;
   var stage = new PIXI.Stage(0xF0FFFF, true);
-  $(window).resize(function(){
-    console.log("re");
-    Renderer.resize();
-  });
 
   return {
     width:width
@@ -17,13 +13,19 @@ var Screen = (function(){
   };
 })();
 
+
+
 var World = (function(){
   var width = 1024;
   var height = 512;
   var skyHeight = 128;
   var seaHeight = 384;
-
-
+  var backgroundImageName = "images/background1.png";
+  var foregroundImageName = "images/foreground.png";
+  Loader.push(backgroundImageName);
+  Loader.push(foregroundImageName);
+  var background = new PIXI.Sprite.fromImage(backgroundImageName);
+  Screen.stage.addChild(background);
 
 })();
 
@@ -55,8 +57,8 @@ var SSL = (function(){
 })();
 
 var Camera = (function(){
-  var width = 960;
-  var height = 640;
+  var width = 240;
+  var height = 160;
   var scale = 1;
   var center = {
     x:0
@@ -84,8 +86,11 @@ var Renderer = (function(){
   renderer.view.style.display = "block";
   renderer.view.style.margin = "auto";
   resize();
-  console.log(renderer.view);
   document.body.appendChild(renderer.view);
+  $(window).resize(function(){
+    console.log("re");
+    resize();
+  });
 
   function resize(){
     renderer.view.style.width = $(window).width() + 'px';
@@ -117,23 +122,7 @@ var Renderer = (function(){
 
 Input.init();
 
-var Loader = (function(){
-  var assetsToLoader = ["images/logo_small.png", "images/PixieSpineData.json", "images/Pixie.json", "images/iP4_BGtile.jpg", "images/iP4_ground.png"];
-  var loader = new PIXI.AssetLoader(assetsToLoader);
-  loader.onComplete = function() {
-    console.log('loaded');
-    Renderer.play();
-  };
 
-  function load(){
-    loader.load();
-  }
-  
-  return {
-    load:load
-  };
-
-})();
 
 Loader.load();
 
