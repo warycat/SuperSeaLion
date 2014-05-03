@@ -216,7 +216,7 @@
             "damage_low_range": 0,
             "damage_medium_range": 0,
             "damage_high_range": 0,
-            "special": "encase"
+            "special": "encase",
             "actions":["clamp"]
         },
         {
@@ -260,7 +260,8 @@
             "hp": 2,
             "damage_low_range": 0,
             "damage_medium_range": 0,
-            "damage_high_range": 2
+            "damage_high_range": 2,
+            "actions":["wobble", "charge", "bite"]
         },
         {
             "name": "Seagull",
@@ -270,7 +271,8 @@
             "damage_low_range": 0,
             "damage_medium_range": 0,
             "damage_high_range": 1,
-            "special": "poop"
+            "special": "poop",
+            "actions":["fly", "dive", "poop"]
         }
     ]
 }
