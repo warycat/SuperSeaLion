@@ -2,9 +2,13 @@
 console.log('supersealion');
 
 var Screen = (function(){
-  var width = 960;
-  var height = 640;
-  var stage = new PIXI.Stage(0xFFFFFF, true);
+  var width = 480;
+  var height = 320;
+  var stage = new PIXI.Stage(0xF0FFFF, true);
+  $(window).resize(function(){
+    console.log("re");
+    Renderer.resize();
+  });
 
   return {
     width:width
@@ -13,8 +17,15 @@ var Screen = (function(){
   };
 })();
 
+var World = (function(){
+  var width = 1024;
+  var height = 512;
+  var skyHeight = 128;
+  var seaHeight = 384;
 
 
+
+})();
 
 var SSL = (function(){
   var width = 100;
@@ -72,9 +83,14 @@ var Renderer = (function(){
   var paused = true;
   renderer.view.style.display = "block";
   renderer.view.style.margin = "auto";
-  renderer.view.style.width = Screen.width;
-  renderer.view.style.height = Screen.width;
+  resize();
+  console.log(renderer.view);
   document.body.appendChild(renderer.view);
+
+  function resize(){
+    renderer.view.style.width = $(window).width() + 'px';
+    renderer.view.style.height = $(window).width()/1.5 + 'px';
+  }
 
   function play(){
     paused = false;
@@ -95,6 +111,7 @@ var Renderer = (function(){
   return {
     play:play
   , pause:pause
+  , resize:resize
   };
 })();
 
