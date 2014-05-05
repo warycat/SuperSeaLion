@@ -1,0 +1,19 @@
+
+skeleton.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+claw_2
+  rotate: false
+  xy: 2, 2
+  size: 170, 182
+  orig: 184, 186
+  offset: 13, 4
+  index: -1
+claw_2_5
+  rotate: false
+  xy: 174, 113
+  size: 80, 71
+  orig: 150, 100
+  offset: 35, 15
+  index: -1
