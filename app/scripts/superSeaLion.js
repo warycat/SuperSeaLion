@@ -27,6 +27,10 @@ var World = (function(){
   var background = new PIXI.Sprite.fromImage(backgroundImageName);
   Screen.stage.addChild(background);
 
+  return {
+    sprite:background
+  };
+
 })();
 
 var SSL = (function(){
@@ -64,6 +68,24 @@ var Camera = (function(){
     x:0
   , y:0
   };
+  function render(){
+    if(Input.keys.A)center.x--;
+    if(Input.keys.D)center.x++;
+    if(Input.keys.W)center.y--;
+    if(Input.keys.S)center.y++;
+    if(center.x<0)center.x=0;
+    if(center.x>1024)center.x=1024;
+    if(center.y<0)center.y=0;
+    if(center.y>512)center.y=512;
+    World.sprite.x = -center.x;
+    World.sprite.y = -center.y;
+    World.sprite.scale = {x:2,y:2};
+  }
+
+  return {
+    render:render
+  };
+
 })();
 
 var GameSpace  = (function(){
@@ -71,6 +93,8 @@ var GameSpace  = (function(){
   var right = 10000;
   var top = -1000;
   var bottom = 3000;
+
+
 
   return {
     left:left
@@ -88,7 +112,6 @@ var Renderer = (function(){
   resize();
   document.body.appendChild(renderer.view);
   $(window).resize(function(){
-    console.log("re");
     resize();
   });
 
@@ -108,7 +131,7 @@ var Renderer = (function(){
 
   function animate(){
     if(paused)return;
-    if(Input.keys.A)console.log('.');
+    Camera.render();
     renderer.render(Screen.stage);
     requestAnimFrame(animate);
   }
