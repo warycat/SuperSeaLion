@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="128" height="64" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="bigset" tilewidth="64" tileheight="64">
+  <image source="../../tileSet/bigset.png" trans="ff00ff" width="384" height="15096"/>
+ </tileset>
+ <tileset firstgid="1411" name="SmallWorld-All" tilewidth="64" tileheight="64">
+  <image source="../../tileSet/SmallWorld-All.png" trans="ff00ff" width="630" height="1263"/>
+ </tileset>
+ <tileset firstgid="1582" name="ss (2013-06-07 at 11.07.58)" tilewidth="64" tileheight="64">
+  <image source="../../tileSet/ss (2013-06-07 at 11.07.58).png" trans="ff00ff" width="346" height="176"/>
+ </tileset>
+ <tileset firstgid="1592" name="tileset-platformer-ice" tilewidth="64" tileheight="64">
+  <image source="../../tileSet/tileset-platformer-ice.png" trans="ff00ff" width="192" height="384"/>
+ </tileset>
+ <tileset firstgid="1610" name="set_1" tilewidth="64" tileheight="64">
+  <image source="../../tileSet/set_1.png" trans="ff00ff" width="896" height="448"/>
+ </tileset>
+ <tileset firstgid="1708" name="set_1" tilewidth="64" tileheight="64">
+  <image source="../../tileSet/set_1.png" trans="ff00ff" width="896" height="448"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="128" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt0UENACAMBMG+UIcGXBDsI6HPPm5GwSZbBb2zpguYdP2P9HyPtv0HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACDQBx1RAa8=
+  </data>
+ </layer>
+</map>
