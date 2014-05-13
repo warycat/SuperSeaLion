@@ -12923,8 +12923,8 @@ PIXI.AtlasLoader.prototype.onAtlasLoaded = function () {
                             if (frameData[i].trimmed) {
                                 PIXI.TextureCache[i].realSize = frameData[i].realSize;
                                 // trim in pixi not supported yet, todo update trim properties if it is done ...
-                                PIXI.TextureCache[i].trim.x = 0;
-                                PIXI.TextureCache[i].trim.y = 0;
+                               // PIXI.TextureCache[i].trim.x = 0;
+                               // PIXI.TextureCache[i].trim.y = 0;
                             }
                         }
                     }
