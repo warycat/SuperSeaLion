@@ -278,7 +278,7 @@ module.exports = function (grunt) {
             'images/{,*/}*.*',
             '{,*/}*.html',
             'styles/fonts/{,*/}*.*',
-            'scripts/{,*/}*.*'
+            'bower_components/bootstrap/dist/fonts/*.*'
           ]
         }, {
           expand: true,
