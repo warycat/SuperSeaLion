@@ -24,16 +24,26 @@ var World = (function(){
   var foregroundImageName = "images/foreground.png";
   Loader.push(backgroundImageName);
   Loader.push(foregroundImageName);
+  var container = new PIXI.DisplayObjectContainer();
   var background = new PIXI.Sprite.fromImage(backgroundImageName);
-  Screen.stage.addChild(background);
+  container.addChild(background);
+  Screen.stage.addChild(container);
+
 
   return {
-    sprite:background
+    sprite:container
   };
 
 })();
 
 var Tiles = (function(){
+  var size = 64;
+  var row = 64;
+  var col = 128;
+  function absolutePosition(r,c){
+    var p = {x:c*size, y:r*size};
+    return p;
+  }
 
 })();
 
@@ -77,13 +87,15 @@ var Camera = (function(){
     if(Input.keys.D)center.x++;
     if(Input.keys.W)center.y--;
     if(Input.keys.S)center.y++;
+    if(Input.keys.Z)scale*=1.01;
+    if(Input.keys.X)scale/=1.01;
     if(center.x<0)center.x=0;
     if(center.x>1024)center.x=1024;
     if(center.y<0)center.y=0;
     if(center.y>512)center.y=512;
     World.sprite.x = -center.x;
     World.sprite.y = -center.y;
-    World.sprite.scale = {x:2,y:2};
+    World.sprite.scale = {x:scale,y:scale};
   }
 
   return {

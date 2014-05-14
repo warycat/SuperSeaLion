@@ -1,11 +1,12 @@
 var Input = (function(){
   var keys = {};
   var debug = false;
+  var keyString = 'ASDQWEZX';
 
   function keydown(event){
     var keyCode = event.keyCode;
     var keyChar = String.fromCharCode(keyCode);
-    if('ASDQWE'.indexOf(keyChar) !== -1){
+    if(keyString.indexOf(keyChar) !== -1){
       event.preventDefault();
       keys[keyChar] = true;
       if(debug)console.log(keyChar);
@@ -15,7 +16,7 @@ var Input = (function(){
   function keyup(event){
     var keyCode = event.keyCode;
     var keyChar = String.fromCharCode(keyCode);
-    if('ASDQWE'.indexOf(keyChar) !== -1){
+    if(keyString.indexOf(keyChar) !== -1){
       event.preventDefault();
       keys[keyChar] = false;
       if(debug)console.log(keyChar);
