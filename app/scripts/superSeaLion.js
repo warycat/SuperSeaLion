@@ -20,7 +20,6 @@ var Background = (function(){
   var unit = 1;
   var scale = 1;
   var backgroundImageName = "images/background1.png";
-  var backgroundImageScale = {x:2,y:2};
   Loader.push(backgroundImageName);
   var background = new PIXI.Sprite.fromImage(backgroundImageName);
   background.scale = {x:scale,y:scale};
@@ -32,7 +31,7 @@ var Background = (function(){
     var x = center.x * unit / width;
     var y = center.y * unit / height;
     background.anchor = {x:x,y:y};
-    background.scale = {x:scale,y:scale};
+    background.scale = {x:scale*unit,y:scale*unit};
   }
 
   return{
@@ -40,16 +39,42 @@ var Background = (function(){
   };
 })();
 
-var Tiles = (function(){
-  var size = 64;
-  var row = 64;
-  var col = 128;
-  function absolutePosition(r,c){
-    var p = {x:c*size, y:r*size};
-    return p;
+var Foreground = (function(){
+  var width = 2048;
+  var height = 1024;
+  var unit = 2;
+  var scale = 2;
+  var forgroundImageName = "images/foreground1.png";
+  Loader.push(forgroundImageName);
+  var foreground = new PIXI.Sprite.fromImage(forgroundImageName);
+  foreground.scale = {x:scale,y:scale};
+  foreground.x = Screen.width / 2;
+  foreground.y = Screen.height / 2;
+  Screen.stage.addChild(foreground);
+
+  function focus(center,scale){
+    var x = center.x * unit / width;
+    var y = center.y * unit / height;
+    foreground.anchor = {x:x,y:y};
+    foreground.scale = {x:scale*unit,y:scale*unit};
   }
 
+  return{
+    focus:focus
+  };
 })();
+
+// var GameSpace  = (function(){
+//   var width = 1024;
+
+
+//   return {
+//     left:left
+//   , right:right
+//   , top:top
+//   , bottom:bottom
+//   };
+// })();
 
 var SSL = (function(){
   var width = 100;
@@ -82,13 +107,14 @@ var Camera = (function(){
   var width = 480;
   var height = 320;
   var scale = 1;
-  var speed = 10;
+  var speed = 1;
   var center = {
     x:0
-  , y:0
+  , y:256
   };
 
   function render(){
+    center.x += 0.1;
     if(Input.keys.A)center.x-=speed;
     if(Input.keys.D)center.x+=speed;
     if(Input.keys.W)center.y-=speed;
@@ -100,6 +126,7 @@ var Camera = (function(){
     if(center.y<0)center.y=0;
     if(center.y>512)center.y=512;
     Background.focus(center,scale);
+    Foreground.focus(center,scale);
   }
 
   return {
@@ -108,21 +135,7 @@ var Camera = (function(){
 
 })();
 
-var GameSpace  = (function(){
-  var left = 0;
-  var right = 10000;
-  var top = -1000;
-  var bottom = 3000;
 
-
-
-  return {
-    left:left
-  , right:right
-  , top:top
-  , bottom:bottom
-  };
-})();
 
 var Renderer = (function(){
   var renderer = new PIXI.autoDetectRenderer(Screen.width, Screen.height);
