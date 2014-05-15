@@ -14,26 +14,30 @@ var Screen = (function(){
 })();
 
 
-
-var World = (function(){
+var Background = (function(){
   var width = 1024;
   var height = 512;
-  var skyHeight = 128;
-  var seaHeight = 384;
+  var unit = 1;
+  var scale = 1;
   var backgroundImageName = "images/background1.png";
-  var foregroundImageName = "images/foreground.png";
+  var backgroundImageScale = {x:2,y:2};
   Loader.push(backgroundImageName);
-  Loader.push(foregroundImageName);
-  var container = new PIXI.DisplayObjectContainer();
   var background = new PIXI.Sprite.fromImage(backgroundImageName);
-  container.addChild(background);
-  Screen.stage.addChild(container);
+  background.scale = {x:scale,y:scale};
+  background.x = Screen.width / 2;
+  background.y = Screen.height / 2;
+  Screen.stage.addChild(background);
+  
+  function focus(center,scale){
+    var x = center.x * unit / width;
+    var y = center.y * unit / height;
+    background.anchor = {x:x,y:y};
+    background.scale = {x:scale,y:scale};
+  }
 
-
-  return {
-    sprite:container
+  return{
+    focus:focus
   };
-
 })();
 
 var Tiles = (function(){
@@ -75,27 +79,27 @@ var SSL = (function(){
 })();
 
 var Camera = (function(){
-  var width = 240;
-  var height = 160;
+  var width = 480;
+  var height = 320;
   var scale = 1;
+  var speed = 10;
   var center = {
     x:0
   , y:0
   };
+
   function render(){
-    if(Input.keys.A)center.x--;
-    if(Input.keys.D)center.x++;
-    if(Input.keys.W)center.y--;
-    if(Input.keys.S)center.y++;
+    if(Input.keys.A)center.x-=speed;
+    if(Input.keys.D)center.x+=speed;
+    if(Input.keys.W)center.y-=speed;
+    if(Input.keys.S)center.y+=speed;
     if(Input.keys.Z)scale*=1.01;
     if(Input.keys.X)scale/=1.01;
     if(center.x<0)center.x=0;
     if(center.x>1024)center.x=1024;
     if(center.y<0)center.y=0;
     if(center.y>512)center.y=512;
-    World.sprite.x = -center.x;
-    World.sprite.y = -center.y;
-    World.sprite.scale = {x:scale,y:scale};
+    Background.focus(center,scale);
   }
 
   return {
