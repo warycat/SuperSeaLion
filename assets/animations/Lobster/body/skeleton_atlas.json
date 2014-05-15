@@ -1,0 +1,54 @@
+{
+  "body": {
+    "index": -1,
+    "offset": "1, 2",
+    "orig": "358, 233",
+    "rotate": false,
+    "size": "354, 231",
+    "xy": "2, 2"
+  },
+  "claw_2": {
+    "index": -1,
+    "offset": "13, 4",
+    "orig": "184, 186",
+    "rotate": true,
+    "size": "170, 182",
+    "xy": "537, 63"
+  },
+  "claw_2_5": {
+    "index": -1,
+    "offset": "35, 15",
+    "orig": "150, 100",
+    "rotate": false,
+    "size": "80, 71",
+    "xy": "721, 68"
+  },
+  "claw_3": {
+    "index": -1,
+    "offset": "6, 8",
+    "orig": "184, 186",
+    "rotate": false,
+    "size": "177, 178",
+    "xy": "358, 55"
+  },
+  "claw_3_5": {
+    "index": -1,
+    "offset": "35, 18",
+    "orig": "150, 100",
+    "rotate": false,
+    "size": "80, 71",
+    "xy": "817, 162"
+  },
+  "filter": "Linear,Linear",
+  "format": "RGBA8888",
+  "image": "skeleton.png",
+  "repeat": "none",
+  "tail": {
+    "index": -1,
+    "offset": "193, 102",
+    "orig": "500, 300",
+    "rotate": false,
+    "size": "94, 92",
+    "xy": "721, 141"
+  }
+}
