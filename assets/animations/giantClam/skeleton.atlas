@@ -4,28 +4,28 @@ size: 397,220
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-body
+02_body
   rotate: false
   xy: 2, 43
   size: 211, 177
   orig: 211, 177
   offset: 0, 0
   index: -1
-left_eye
+02_left_eye
   rotate: false
   xy: 2, 2
   size: 38, 39
   orig: 38, 39
   offset: 0, 0
   index: -1
-mouth
+02_mouth
   rotate: false
   xy: 215, 108
   size: 182, 112
   orig: 182, 112
   offset: 0, 0
   index: -1
-right_eye
+02_right_eye
   rotate: false
   xy: 215, 68
   size: 39, 38

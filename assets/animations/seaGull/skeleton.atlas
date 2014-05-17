@@ -4,49 +4,49 @@ size: 418,119
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-body
+06_body
   rotate: false
   xy: 97, 55
   size: 119, 64
   orig: 119, 64
   offset: 0, 0
   index: -1
-eyes
+06_eyes
   rotate: false
   xy: 218, 74
   size: 76, 45
   orig: 76, 45
   offset: 0, 0
   index: -1
-head
+06_head
   rotate: false
   xy: 2, 2
   size: 93, 117
   orig: 93, 117
   offset: 0, 0
   index: -1
-lower_lip
+06_lower_lip
   rotate: false
   xy: 367, 97
   size: 51, 22
   orig: 51, 22
   offset: 0, 0
   index: -1
-tail
+06_tail
   rotate: false
   xy: 187, 17
   size: 34, 36
   orig: 34, 36
   offset: 0, 0
   index: -1
-upper_lip
+06_upper_lip
   rotate: false
   xy: 296, 92
   size: 69, 27
   orig: 69, 27
   offset: 0, 0
   index: -1
-wing
+06_wing
   rotate: false
   xy: 97, 7
   size: 88, 46

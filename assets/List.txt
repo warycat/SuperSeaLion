@@ -1,0 +1,13 @@
+ID	object_name
+----------------------
+1	fireryLobster
+2	giantClam
+3	jellyFish
+4	largeFish
+5	octopus
+6	seagull
+7	swordFish
+8	Lobster
+9	ground
+10	iceBlock
+11	smallFish_reward

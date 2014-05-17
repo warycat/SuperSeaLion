@@ -8,24 +8,24 @@
 ],
 "slots": [
 	{ "name": "whole_body", "bone": "root" },
-	{ "name": "fish_body", "bone": "bone", "attachment": "fish_body" },
-	{ "name": "fish_eyes", "bone": "bone2", "attachment": "fish_eyes" },
-	{ "name": "tail", "bone": "bone3", "attachment": "tail" },
-	{ "name": "teeth", "bone": "bone4", "attachment": "teeth" }
+	{ "name": "fish_body", "bone": "bone", "attachment": "07_fish_body" },
+	{ "name": "fish_eyes", "bone": "bone2", "attachment": "07_fish_eyes" },
+	{ "name": "tail", "bone": "bone3", "attachment": "07_tail" },
+	{ "name": "teeth", "bone": "bone4", "attachment": "07_teeth" }
 ],
 "skins": {
 	"default": {
 		"fish_body": {
-			"fish_body": { "x": 3.73, "y": -4.24, "rotation": 176.39, "width": 130, "height": 101 }
+			"07_fish_body": { "x": 3.74, "y": -4.24, "rotation": 176.39, "width": 130, "height": 101 }
 		},
 		"fish_eyes": {
-			"fish_eyes": { "x": 8.1, "y": 6.87, "rotation": 179.1, "width": 25, "height": 25 }
+			"07_fish_eyes": { "x": 20.07, "y": 4.68, "rotation": 179.1, "width": 25, "height": 25 }
 		},
 		"tail": {
-			"tail": { "x": 5.08, "y": 1.76, "rotation": -2.7, "width": 40, "height": 41 }
+			"07_tail": { "x": 6.13, "y": 2.71, "rotation": -2.7, "width": 40, "height": 41 }
 		},
 		"teeth": {
-			"teeth": { "x": 30.14, "y": 4.05, "rotation": 178.19, "width": 91, "height": 30 }
+			"07_teeth": { "x": 29.1, "y": 3.08, "rotation": 178.19, "width": 91, "height": 30 }
 		}
 	}
 },
@@ -102,7 +102,7 @@
 				],
 				"translate": [
 					{ "time": 0, "x": 0, "y": 0 },
-					{ "time": 0.3333, "x": 9.71, "y": -0.35 },
+					{ "time": 0.3333, "x": 26.48, "y": -0.97 },
 					{ "time": 0.6666, "x": 0, "y": 0 }
 				],
 				"scale": [

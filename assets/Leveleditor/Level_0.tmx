@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="128" height="64" tilewidth="64" tileheight="64">
+ <tileset firstgid="1" name="Set" tilewidth="64" tileheight="64">
+  <image source="tileSet/Set.png" trans="ff00ff" width="896" height="448"/>
+  <tile id="0">
+   <properties>
+    <property name="ground" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="ice_piton_upp" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="ice_piton_bottom" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="door" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="door_roof_1" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="door_roof_3" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="door_roof_2" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="candy" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="tree_root" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="tree_branch" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="tree_leaf_1" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="tree_leaf_2" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="tree_leaf_3" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="treasure" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="boss_point_1" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="boss_point_2" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="enemy_point_1" value=""/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="enemy_point_2" value=""/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="ice_block" value=""/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="life_point" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tile Layer 1" width="128" height="64">
+  <data encoding="base64" compression="zlib">
+   eJzt3NluwyAQheFUdZdcVV3UvP+b1lGKhCzWGTBj838Sai+KTXIAY2z1cgFs+hjdAOzqN1Nwbs+ZgrlcvYLzI+e59bjOs26YG/nbVTvfL4JzkL89LvfSezvNPSD561hYk2nuAcl/H7l+UtuPtuNd2g/JX6bm+y7521H7eOTfVyr7FteOxSsS0jUDe9D6z11a99a5Da3qnCX/17W8r+Wtok7Jmj2VY0zrcbVtgzb/m1eOnL//LPWe/cv/z6dIWSqLtr70PKHiK/n71DGk9VPF9fkexw59htT5YqTn6vm9pdp7JHuvJWZcu1i2Rx7+2nvW/C3sXYUw/seQrE/vroHfv9fyIzyey0PanpRQn589f2vzwF55uP41e/5Srfe0nR55pNpC/g/aeUAz5/u4/tvk5svafqJ9tqVR8+wFD6PXA4z/sWLzuLZflNZvkUdNW8nfFsa/HTXjqHT9lzumJg/JHEX+tjD+5ybNw9J+A/JieTH+z6FmP8jf65fkobk3If+xttkx/o+jx15Rzftzn2v5yhwv9xyR/HVa7fu3fqe+FPm30ftd917Iv61Q1jVzRKyv9OpD5N+P5XHvkL89oXfKgJ7cNYr/qzeOv05g3AMAgNZa7VsCAIDx2McBAAAAAAAAAAAA2jnT87c/B+ASgw==
+  </data>
+ </layer>
+</map>

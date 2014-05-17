@@ -4,28 +4,28 @@ size: 252,103
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-fish_body
+07_fish_body
   rotate: false
   xy: 2, 2
   size: 130, 101
   orig: 130, 101
   offset: 0, 0
   index: -1
-fish_eyes
+07_fish_eyes
   rotate: false
   xy: 227, 78
   size: 25, 25
   orig: 25, 25
   offset: 0, 0
   index: -1
-tail
+07_tail
   rotate: false
   xy: 134, 30
   size: 40, 41
   orig: 40, 41
   offset: 0, 0
   index: -1
-teeth
+07_teeth
   rotate: false
   xy: 134, 73
   size: 91, 30

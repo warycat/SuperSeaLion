@@ -7,20 +7,20 @@
 ],
 "slots": [
 	{ "name": "whole_body", "bone": "root" },
-	{ "name": "body", "bone": "bone2", "attachment": "body" },
-	{ "name": "flipper", "bone": "bone3", "attachment": "flipper" },
-	{ "name": "front_eyes2", "bone": "bone4", "attachment": "front_eyes" }
+	{ "name": "body", "bone": "bone2", "attachment": "04_body" },
+	{ "name": "flipper", "bone": "bone3", "attachment": "04_flipper" },
+	{ "name": "front_eyes2", "bone": "bone4", "attachment": "04_front_eyes" }
 ],
 "skins": {
 	"default": {
 		"body": {
-			"body": { "x": 9.9, "y": -50.66, "rotation": -34.71, "width": 248, "height": 151 }
+			"04_body": { "x": 12.64, "y": -51.24, "rotation": -34.71, "width": 248, "height": 151 }
 		},
 		"flipper": {
-			"flipper": { "x": 20.5, "y": -7.78, "rotation": 3.43, "width": 73, "height": 75 }
+			"04_flipper": { "x": 16.75, "y": -7.15, "rotation": 3.43, "width": 73, "height": 75 }
 		},
 		"front_eyes2": {
-			"front_eyes": { "x": 12.26, "y": -11.25, "rotation": 170.19, "width": 40, "height": 39 }
+			"04_front_eyes": { "x": 17.91, "y": -12.54, "rotation": 170.19, "width": 40, "height": 39 }
 		}
 	}
 },

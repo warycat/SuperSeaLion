@@ -2,30 +2,30 @@
 "bones": [
 	{ "name": "root" },
 	{ "name": "bone", "parent": "root", "length": 115.03, "x": 26.5, "y": -2.99, "rotation": -1.35 },
-	{ "name": "bone2", "parent": "root", "length": 86.31, "x": -28.5, "y": 86, "rotation": 137.1 },
-	{ "name": "bone3", "parent": "root", "length": 68.5, "x": 42.5, "y": 72, "rotation": 33.48 },
+	{ "name": "bone2", "parent": "root", "length": 86.31, "x": 5.35, "y": 106.13, "rotation": 137.1 },
+	{ "name": "bone3", "parent": "root", "length": 68.5, "x": 83.17, "y": 84.95, "rotation": 33.48 },
 	{ "name": "bone4", "parent": "bone", "length": 94.02, "x": -65.96, "y": -88.55, "rotation": -180 }
 ],
 "slots": [
 	{ "name": "whole_body", "bone": "root" },
-	{ "name": "body", "bone": "bone", "attachment": "body" },
-	{ "name": "left_eye", "bone": "bone2", "attachment": "left_eye" },
-	{ "name": "right_eye", "bone": "bone3", "attachment": "right_eye" },
-	{ "name": "mouth", "bone": "bone4", "attachment": "mouth" }
+	{ "name": "body", "bone": "bone", "attachment": "02_body" },
+	{ "name": "left_eye", "bone": "bone2", "attachment": "02_left_eye" },
+	{ "name": "right_eye", "bone": "bone3", "attachment": "02_right_eye" },
+	{ "name": "mouth", "bone": "bone4", "attachment": "02_mouth" }
 ],
 "skins": {
 	"default": {
 		"body": {
-			"body": { "x": -25.61, "y": -16.6, "rotation": 1.35, "width": 211, "height": 177 }
+			"02_body": { "rotation": 1.35, "width": 211, "height": 177 }
 		},
 		"left_eye": {
-			"left_eye": { "rotation": -137.1, "width": 38, "height": 39 }
+			"02_left_eye": { "x": -0.57, "y": 3.55, "rotation": -137.1, "width": 38, "height": 39 }
 		},
 		"mouth": {
-			"mouth": { "x": -28.28, "y": -72.68, "rotation": -178.64, "width": 182, "height": 112 }
+			"02_mouth": { "x": -53.92, "y": -88.29, "rotation": -178.64, "width": 182, "height": 112 }
 		},
 		"right_eye": {
-			"right_eye": { "rotation": -33.48, "width": 39, "height": 38 }
+			"02_right_eye": { "x": -2.5, "y": 1.65, "rotation": -33.48, "width": 39, "height": 38 }
 		}
 	}
 },
@@ -217,8 +217,9 @@
 				],
 				"translate": [
 					{ "time": 0, "x": 0, "y": 0 },
+					{ "time": 0.0333, "x": -4.13, "y": -3.12 },
 					{ "time": 0.1666, "x": -22.27, "y": -21.55 },
-					{ "time": 0.3333, "x": 59.64, "y": 11.37 },
+					{ "time": 0.3333, "x": 61.21, "y": -6.48 },
 					{ "time": 0.5, "x": 0, "y": 0 }
 				],
 				"scale": [
@@ -241,8 +242,11 @@
 				],
 				"translate": [
 					{ "time": 0, "x": 0, "y": 0 },
-					{ "time": 0.1666, "x": -18.62, "y": 2.97 },
-					{ "time": 0.3333, "x": 44.05, "y": -27.38 },
+					{ "time": 0.1333, "x": -28.55, "y": 9.4 },
+					{ "time": 0.1666, "x": -37.71, "y": 10.06 },
+					{ "time": 0.2, "x": -12.89, "y": 4.82 },
+					{ "time": 0.2666, "x": 18.97, "y": -12.4 },
+					{ "time": 0.3333, "x": 33.27, "y": -35.38 },
 					{ "time": 0.5, "x": 0, "y": 0 }
 				],
 				"scale": [

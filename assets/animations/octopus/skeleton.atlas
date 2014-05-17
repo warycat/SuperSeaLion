@@ -4,56 +4,56 @@ size: 370,254
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-eyes
+05_eyes
   rotate: false
   xy: 2, 2
   size: 110, 34
   orig: 110, 34
   offset: 0, 0
   index: -1
-leg1
+05_leg1
   rotate: false
   xy: 273, 195
   size: 95, 20
   orig: 99, 23
   offset: 4, 2
   index: -1
-leg2
+05_leg2
   rotate: false
   xy: 2, 38
   size: 109, 50
   orig: 109, 51
   offset: 0, 1
   index: -1
-leg3
+05_leg3
   rotate: false
   xy: 201, 184
   size: 70, 70
   orig: 73, 74
   offset: 3, 4
   index: -1
-leg4
+05_leg4
   rotate: true
   xy: 273, 217
   size: 37, 97
   orig: 39, 97
   offset: 2, 0
   index: -1
-leg5
+05_leg5
   rotate: true
   xy: 113, 40
   size: 48, 80
   orig: 50, 85
   offset: 0, 5
   index: -1
-leg6
+05_leg6
   rotate: false
   xy: 201, 123
   size: 55, 59
   orig: 57, 63
   offset: 0, 4
   index: -1
-octopus_head
+05_octopus_head
   rotate: false
   xy: 2, 90
   size: 197, 164
