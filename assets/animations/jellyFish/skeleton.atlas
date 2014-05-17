@@ -1,0 +1,90 @@
+
+skeleton.png
+size: 707,126
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cute_mouth
+  rotate: false
+  xy: 425, 77
+  size: 27, 9
+  orig: 27, 9
+  offset: 0, 0
+  index: -1
+jelly_body
+  rotate: false
+  xy: 2, 2
+  size: 187, 124
+  orig: 187, 124
+  offset: 0, 0
+  index: -1
+jelly_eyes
+  rotate: false
+  xy: 191, 9
+  size: 105, 18
+  orig: 105, 18
+  offset: 0, 0
+  index: -1
+leg1
+  rotate: true
+  xy: 386, 7
+  size: 61, 56
+  orig: 61, 56
+  offset: 0, 0
+  index: -1
+leg10
+  rotate: false
+  xy: 321, 10
+  size: 63, 58
+  orig: 63, 58
+  offset: 0, 0
+  index: -1
+leg2
+  rotate: true
+  xy: 323, 70
+  size: 56, 100
+  orig: 56, 100
+  offset: 0, 0
+  index: -1
+leg3
+  rotate: true
+  xy: 323, 70
+  size: 56, 100
+  orig: 56, 100
+  offset: 0, 0
+  index: -1
+leg4
+  rotate: true
+  xy: 536, 100
+  size: 26, 105
+  orig: 26, 105
+  offset: 0, 0
+  index: -1
+leg5
+  rotate: true
+  xy: 191, 77
+  size: 49, 130
+  orig: 49, 130
+  offset: 0, 0
+  index: -1
+leg7
+  rotate: true
+  xy: 643, 98
+  size: 28, 64
+  orig: 28, 64
+  offset: 0, 0
+  index: -1
+leg8
+  rotate: true
+  xy: 191, 29
+  size: 46, 128
+  orig: 46, 128
+  offset: 0, 0
+  index: -1
+leg9
+  rotate: true
+  xy: 425, 88
+  size: 38, 109
+  orig: 38, 109
+  offset: 0, 0
+  index: -1
