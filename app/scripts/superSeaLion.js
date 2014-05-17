@@ -2,8 +2,8 @@
 console.log('supersealion');
 
 var Screen = (function(){
-  var width = 480;
-  var height = 320;
+  var width = 960;
+  var height = 640;
   var stage = new PIXI.Stage(0xF0FFFF, true);
 
   return {
@@ -14,67 +14,53 @@ var Screen = (function(){
 })();
 
 
-var Background = (function(){
-  var width = 1024;
-  var height = 512;
-  var unit = 1;
-  var scale = 1;
-  var backgroundImageName = "images/background1.png";
-  Loader.push(backgroundImageName);
-  var background = new PIXI.Sprite.fromImage(backgroundImageName);
-  background.scale = {x:scale,y:scale};
-  background.x = Screen.width / 2;
-  background.y = Screen.height / 2;
-  Screen.stage.addChild(background);
-  
-  function focus(center,scale){
-    var x = center.x * unit / width;
-    var y = center.y * unit / height;
-    background.anchor = {x:x,y:y};
-    background.scale = {x:scale*unit,y:scale*unit};
-  }
+function Layer(unit){
+  this.width = 8192;
+  this.height = 4096;
+  this.unit = unit;
+}
 
-  return{
-    focus:focus
-  };
-})();
+Layer.prototype.init = function(){
+  this.sprite.x = Screen.width / 2;
+  this.sprite.y = Screen.height / 2;
+  this.sprite.scale = {x:this.scale,y:this.scale};
+  Screen.stage.addChild(this.sprite);
+};
 
-var Foreground = (function(){
-  var width = 2048;
-  var height = 1024;
-  var unit = 2;
-  var scale = 2;
-  var forgroundImageName = "images/foreground1.png";
-  Loader.push(forgroundImageName);
-  var foreground = new PIXI.Sprite.fromImage(forgroundImageName);
-  foreground.scale = {x:scale,y:scale};
-  foreground.x = Screen.width / 2;
-  foreground.y = Screen.height / 2;
-  Screen.stage.addChild(foreground);
+Layer.prototype.focus = function(center,zoom){
+  var x = center.x / this.width;
+  var y = center.y / this.height;
+  this.sprite.anchor = {x:x,y:y};
+  this.sprite.scale = {x: zoom * this.scale / this.unit, y: zoom * this.scale / this.unit};
+};
 
-  function focus(center,scale){
-    var x = center.x * unit / width;
-    var y = center.y * unit / height;
-    foreground.anchor = {x:x,y:y};
-    foreground.scale = {x:scale*unit,y:scale*unit};
-  }
+var Background = new Layer(1.2);
 
-  return{
-    focus:focus
-  };
-})();
+Background.init = function(){
+  this.sprite = PIXI.Sprite.fromImage(Loader.path.backgroundImage);
+  this.scale = 8;
+  Layer.prototype.init.call(this);
+};
 
-// var GameSpace  = (function(){
-//   var width = 1024;
+var Foreground = new Layer(1.1);
+
+Foreground.init = function(){
+  this.sprite = PIXI.Sprite.fromImage(Loader.path.foregroundImage);
+  this.scale = 8;
+  Layer.prototype.init.call(this);
+};
+
+var Gamespace = new Layer(1);
+
+Gamespace.init = function(){
+  var texture = PIXI.Texture.fromImage(Loader.path.gamespaceImage);
+  this.sprite = new PIXI.TilingSprite(texture,this.width,this.height);
+  this.scale = 1;
+  Layer.prototype.init.call(this);
+};
 
 
-//   return {
-//     left:left
-//   , right:right
-//   , top:top
-//   , bottom:bottom
-//   };
-// })();
+
 
 var SSL = (function(){
   var width = 100;
@@ -104,13 +90,15 @@ var SSL = (function(){
 })();
 
 var Camera = (function(){
-  var width = 480;
-  var height = 320;
-  var scale = 1;
-  var speed = 1;
+  var width = 960;
+  var height = 480;
+  var zoom = 1;
+  var speed = 10;
+  var xlimit = Screen.width/2;
+  var ylimit = Screen.height/2;
   var center = {
-    x:0
-  , y:256
+    x:480
+  , y:2048
   };
 
   function render(){
@@ -119,14 +107,17 @@ var Camera = (function(){
     if(Input.keys.D)center.x+=speed;
     if(Input.keys.W)center.y-=speed;
     if(Input.keys.S)center.y+=speed;
-    if(Input.keys.Z)scale*=1.01;
-    if(Input.keys.X)scale/=1.01;
-    if(center.x<0)center.x=0;
-    if(center.x>1024)center.x=1024;
-    if(center.y<0)center.y=0;
-    if(center.y>512)center.y=512;
-    Background.focus(center,scale);
-    Foreground.focus(center,scale);
+    if(Input.keys.Z)zoom*=1.01;
+    if(Input.keys.X)zoom/=1.01;
+    if(zoom<0.8)zoom=0.8;
+    if(zoom>1)zoom=1;
+    if(center.x<xlimit) center.x=xlimit;
+    if(center.x>Gamespace.width-xlimit) center.x = Gamespace.width - xlimit;
+    if(center.y<ylimit) center.y = ylimit;
+    if(center.y> Gamespace.height - ylimit) center.y = Gamespace.height - ylimit;
+    Background.focus(center,zoom);
+    Foreground.focus(center,zoom);
+    Gamespace.focus(center,zoom);
   }
 
   return {

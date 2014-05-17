@@ -1,20 +1,40 @@
 var Loader = (function(){
-  var assetsToLoad = ["images/logo_small.png", "images/PixieSpineData.json", "images/Pixie.json", "images/iP4_BGtile.jpg", "images/iP4_ground.png"];
+  var prefix = 'images/';
+  var assets = {
+    backgroundImage:'background1.png'
+  , foregroundImage:'foreground1.png'
+  , gamespaceImage:'random_trans.png'
+  , levelImage:'level.png'
+  , levelJson:'level.json'
+  };
+  
+  var path = {};
+  _.each(assets,function(value,key){
+    path[key] = prefix + value;
+  });
+
+  var assetsToLoad = _.map(assets,function(value,key){
+    return prefix + value;
+  });
+  console.log(path);
+  console.log(assetsToLoad);
+
   var loader = new PIXI.AssetLoader(assetsToLoad);
+
   loader.onComplete = function() {
+    Background.init();
+    Foreground.init();
+    Gamespace.init();
     Renderer.play();
   };
 
   function load(){
     loader.load();
   }
-  
-  function push(asset){
-    assetsToLoad.push(asset);
-  }
 
   return {
-    push:push
+    assets:assets
+  , path:path
   , load:load
   };
 
