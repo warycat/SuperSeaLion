@@ -4,8 +4,6 @@ var Loader = (function(){
     backgroundImage:'background1.png'
   , foregroundImage:'foreground1.png'
   , gamespaceImage:'random_trans.png'
-  , levelImage:'level.png'
-  , levelJson:'level.json'
   };
   
   var path = {};
