@@ -1,7 +1,7 @@
 var Input = (function(){
   var keys = {};
   var debug = false;
-  var keyString = 'ASDQWEZX';
+  var keyString = 'ASDQWEZXCVBN';
 
   function keydown(event){
     var keyCode = event.keyCode;
