@@ -1,0 +1,116 @@
+{"frames": [
+
+{
+	"filename": "01_whole_body_scaled.png",
+	"frame": {"x":943,"y":2,"w":64,"h":59},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":59},
+	"sourceSize": {"w":64,"h":59}
+},
+{
+	"filename": "02_whole_body_scaled.png",
+	"frame": {"x":816,"y":2,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+{
+	"filename": "03_whole_jelly_scaled.png",
+	"frame": {"x":750,"y":2,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":64,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+{
+	"filename": "04_whole_body_scaled.png",
+	"frame": {"x":396,"y":2,"w":128,"h":77},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":77},
+	"sourceSize": {"w":128,"h":77}
+},
+{
+	"filename": "05_whole_body_scaled.png",
+	"frame": {"x":882,"y":2,"w":59,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":59,"h":64},
+	"sourceSize": {"w":59,"h":64}
+},
+{
+	"filename": "06_whole_seagull_scaled.png",
+	"frame": {"x":2,"y":2,"w":108,"h":64},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":108,"h":64},
+	"sourceSize": {"w":108,"h":64}
+},
+{
+	"filename": "07_whole_body_scaled.png",
+	"frame": {"x":526,"y":2,"w":156,"h":64},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":156,"h":64},
+	"sourceSize": {"w":156,"h":64}
+},
+{
+	"filename": "08_wholebody_scaled.png",
+	"frame": {"x":266,"y":2,"w":128,"h":85},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":85},
+	"sourceSize": {"w":128,"h":85}
+},
+{
+	"filename": "09_ground.png",
+	"frame": {"x":526,"y":68,"w":64,"h":36},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":415,"y":193,"w":64,"h":36},
+	"sourceSize": {"w":896,"h":448}
+},
+{
+	"filename": "10_icBlock.png",
+	"frame": {"x":684,"y":2,"w":64,"h":64},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":416,"y":191,"w":64,"h":64},
+	"sourceSize": {"w":896,"h":448}
+},
+{
+	"filename": "11_smaill_fish_2_scaled.png",
+	"frame": {"x":200,"y":2,"w":91,"h":64},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":91,"h":64},
+	"sourceSize": {"w":91,"h":64}
+},
+{
+	"filename": "11_small_fish_1_scaled.png",
+	"frame": {"x":134,"y":2,"w":92,"h":64},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":64},
+	"sourceSize": {"w":92,"h":64}
+},
+{
+	"filename": "11_small_fish_3_scaled.png",
+	"frame": {"x":68,"y":2,"w":92,"h":64},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":64},
+	"sourceSize": {"w":92,"h":64}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "textures_scaled.png",
+	"format": "RGBA8888",
+	"size": {"w":1004,"h":112},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:539668d2e5d520a6c46427aa81f114c5:eaf8cc68d00cbbf931519837abc91096:2ca2cca6456d596ea242f44585cab860$"
+}
+}
