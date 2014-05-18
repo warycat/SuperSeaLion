@@ -40,8 +40,8 @@ var Camera = (function(){
   };
 
   function render(){
-    center.x += 10;
-    center.y += 10;
+    // center.x += 10;
+    // center.y += 10;
     if(Input.keys.A)center.x-=speed;
     if(Input.keys.D)center.x+=speed;
     if(Input.keys.W)center.y-=speed;

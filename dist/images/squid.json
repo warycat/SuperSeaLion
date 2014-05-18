@@ -1,0 +1,92 @@
+{"frames": {
+
+"squid_0000_leg6.png":
+{
+	"frame": {"x":2,"y":2,"w":50,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":50,"h":50},
+	"sourceSize": {"w":50,"h":50}
+},
+"squid_0001_leg5.png":
+{
+	"frame": {"x":54,"y":2,"w":45,"h":69},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":69},
+	"sourceSize": {"w":45,"h":69}
+},
+"squid_0002_leg4.png":
+{
+	"frame": {"x":101,"y":2,"w":57,"h":93},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":57,"h":93},
+	"sourceSize": {"w":57,"h":93}
+},
+"squid_0003_leg3.png":
+{
+	"frame": {"x":160,"y":2,"w":60,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":60,"h":62},
+	"sourceSize": {"w":60,"h":62}
+},
+"squid_0004_leg2.png":
+{
+	"frame": {"x":2,"y":97,"w":98,"h":43},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":43},
+	"sourceSize": {"w":98,"h":43}
+},
+"squid_0005_leg1.png":
+{
+	"frame": {"x":102,"y":97,"w":90,"h":24},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":24},
+	"sourceSize": {"w":90,"h":24}
+},
+"squid_0006_right-eye.png":
+{
+	"frame": {"x":194,"y":97,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"squid_0007_left-eye.png":
+{
+	"frame": {"x":2,"y":142,"w":32,"h":32},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":32},
+	"sourceSize": {"w":32,"h":32}
+},
+"squid_0008_head.png":
+{
+	"frame": {"x":36,"y":142,"w":197,"h":200},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":197,"h":200},
+	"sourceSize": {"w":197,"h":200}
+},
+"squid_0009_body.png":
+{
+	"frame": {"x":2,"y":344,"w":105,"h":37},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":105,"h":37},
+	"sourceSize": {"w":105,"h":37}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "squid.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5a46e98d91bb7cbc29a1d08ebe8838cd:bce4ecc0e2d391abd870cf2f43f90ea2:8b4feb78612c6af3d8d5ca896932872f$"
+}
+}

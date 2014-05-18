@@ -62,8 +62,7 @@ Foreground.init = function(){
   this.sprite.setInteractive(true);
   this.sprite.mousedown = function(mouseData){
     var ps = mouseData.getLocalPosition(self.sprite);
-    var pp = mouseData.getLocalPosition(self.sprite.parent);
-    console.log(ps.x,ps.y,pp.x,pp.y);
+    console.log(ps.x,ps.y);
   };
   this.scale = 8;
   Layer.prototype.init.call(this);
@@ -74,7 +73,11 @@ var Gamespace = new Layer(1);
 Gamespace.init = function(){
   var texture = PIXI.Texture.fromImage(Loader.path.gamespaceImage);
   this.sprite = new PIXI.TilingSprite(texture,this.width,this.height);
-
+  var squid = new PIXI.Spine(Loader.path.squidAnim);
+  squid.x = 500;
+  squid.y = 500;
+  squid.state.setAnimationByName('animation',true);
+  this.sprite.addChild(squid);
   this.scale = 1;
   Layer.prototype.init.call(this);
 };

@@ -4,6 +4,9 @@ var Loader = (function(){
     backgroundImage:'background1.png'
   , foregroundImage:'foreground1.png'
   , gamespaceImage:'random_trans.png'
+  , squidImage:'squid.png'
+  , squidAnim:'squid.anim'
+  , squidJson:'squid.json'
   };
   
   var path = {};
