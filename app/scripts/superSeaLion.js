@@ -30,33 +30,34 @@ var Camera = (function(){
   var height = 480;
   var zoom = 1;
   var speed = 10;
-  var backgroundUnit = 1;
+  var backgroundUnit = 0.5;
   var foregroundUnit = 1;
   var xlimit = Screen.width/2;
   var ylimit = Screen.height/2;
   var center = {
-    x:480
-  , y:2048
+    x:0
+  , y:0
   };
 
   function render(){
-    center.x += 0.1;
+    center.x += 10;
+    center.y += 10;
     if(Input.keys.A)center.x-=speed;
     if(Input.keys.D)center.x+=speed;
     if(Input.keys.W)center.y-=speed;
     if(Input.keys.S)center.y+=speed;
     if(Input.keys.Z)zoom*=1.01;
     if(Input.keys.X)zoom/=1.01;
-    if(Input.keys.C)backgroundUnit*=1.01;
-    if(Input.keys.V)backgroundUnit/=1.01;
-    if(Input.keys.B)foregroundUnit*=1.01;
-    if(Input.keys.N)foregroundUnit/=1.01;
-    if(zoom<0.8)zoom=0.8;
+    if(Input.keys.C)foregroundUnit*=1.01;
+    if(Input.keys.V)foregroundUnit/=1.01;
+    if(Input.keys.B)backgroundUnit*=1.01;
+    if(Input.keys.N)backgroundUnit/=1.01;
+    if(zoom<0.25)zoom=0.25;
     if(zoom>1)zoom=1;
-    if(backgroundUnit<1)backgroundUnit = 1;
-    if(backgroundUnit>8)backgroundUnit = 8;
-    if(foregroundUnit<1)foregroundUnit = 1;
-    if(foregroundUnit>4)foregroundUnit = 4;
+    if(foregroundUnit<0.5)foregroundUnit = 0.5;
+    if(foregroundUnit>1)foregroundUnit = 1;
+    if(backgroundUnit<0.25)backgroundUnit = 0.25;
+    if(backgroundUnit>1)backgroundUnit = 1;
     Background.unit = backgroundUnit;
     Foreground.unit = foregroundUnit;
     if(center.x<xlimit) center.x=xlimit;

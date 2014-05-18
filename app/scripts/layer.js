@@ -33,17 +33,20 @@ Layer.prototype.init = function(){
   this.sprite.x = Screen.width / 2;
   this.sprite.y = Screen.height / 2;
   this.sprite.scale = {x:this.scale,y:this.scale};
+  // this.sprite.anchor = {x:0.5,y:0.5};
   Screen.stage.addChild(this.sprite);
 };
 
 Layer.prototype.focus = function(center,zoom){
   var x = center.x / this.width;
   var y = center.y / this.height;
-  this.sprite.anchor = {x:x,y:y};
-  this.sprite.scale = {x: zoom * this.scale / this.unit, y: zoom * this.scale / this.unit};
+  this.sprite.scale = {x: this.scale * this.unit * zoom, y: this.scale * this.unit * zoom};
+  this.sprite.x = Screen.width / 2 - center.x + this.width * (1- this.unit*zoom) * x;
+  this.sprite.y = Screen.height / 2 - center.y + this.height*(1- this.unit*zoom) * y;
+
 };
 
-var Background = new Layer(1.2);
+var Background = new Layer(1);
 
 Background.init = function(){
   this.sprite = PIXI.Sprite.fromImage(Loader.path.backgroundImage);
@@ -51,10 +54,17 @@ Background.init = function(){
   Layer.prototype.init.call(this);
 };
 
-var Foreground = new Layer(1.1);
+var Foreground = new Layer(1);
 
 Foreground.init = function(){
+  var self = this;
   this.sprite = PIXI.Sprite.fromImage(Loader.path.foregroundImage);
+  this.sprite.setInteractive(true);
+  this.sprite.mousedown = function(mouseData){
+    var ps = mouseData.getLocalPosition(self.sprite);
+    var pp = mouseData.getLocalPosition(self.sprite.parent);
+    console.log(ps.x,ps.y,pp.x,pp.y);
+  };
   this.scale = 8;
   Layer.prototype.init.call(this);
 };
@@ -64,6 +74,7 @@ var Gamespace = new Layer(1);
 Gamespace.init = function(){
   var texture = PIXI.Texture.fromImage(Loader.path.gamespaceImage);
   this.sprite = new PIXI.TilingSprite(texture,this.width,this.height);
+
   this.scale = 1;
   Layer.prototype.init.call(this);
 };
