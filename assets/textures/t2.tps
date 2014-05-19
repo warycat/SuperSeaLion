@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>3.3.4</string>
         <key>fileName</key>
-        <string>C:/Users/aeolian/SuperSeaLion/assets/textures/t1.tps</string>
+        <string>C:/Users/aeolian/SuperSeaLion/assets/textures/t2.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>json-array</string>
         <key>textureFileName</key>
-        <filename>textures.png</filename>
+        <filename>textures_scaled.png</filename>
         <key>flipPVR</key>
         <false/>
         <key>ditherType</key>
@@ -131,7 +131,7 @@
             <key>data</key>
             <struct type="DataFile">
                 <key>name</key>
-                <filename>textures.json</filename>
+                <filename>textures_scaled.json</filename>
             </struct>
         </map>
         <key>multiPack</key>
@@ -172,89 +172,21 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../fireryLobster_reward/01_whole_body.png</filename>
-            <filename>../fireryLobster_reward/01_body.png</filename>
-            <filename>../fireryLobster_reward/01_eyes.png</filename>
-            <filename>../fireryLobster_reward/01_fire_left.png</filename>
-            <filename>../fireryLobster_reward/01_fire_right.png</filename>
-            <filename>../fireryLobster_reward/01_left_arm.png</filename>
-            <filename>../fireryLobster_reward/01_right_arm.png</filename>
-            <filename>../fireryLobster_reward/01_tail.png</filename>
-            <filename>../giantClam_parts/02_whole_body.png</filename>
-            <filename>../giantClam_parts/02_body.png</filename>
-            <filename>../giantClam_parts/02_left_eye.png</filename>
-            <filename>../giantClam_parts/02_mouth.png</filename>
-            <filename>../giantClam_parts/02_right_eye.png</filename>
-            <filename>../jellyFish_part/03_whole_jelly.png</filename>
-            <filename>../jellyFish_part/03_cute_mouth.png</filename>
-            <filename>../jellyFish_part/03_jelly_body.png</filename>
-            <filename>../jellyFish_part/03_jelly_eyes.png</filename>
-            <filename>../jellyFish_part/03_leg1.png</filename>
-            <filename>../jellyFish_part/03_leg2.png</filename>
-            <filename>../jellyFish_part/03_leg3.png</filename>
-            <filename>../jellyFish_part/03_leg4.png</filename>
-            <filename>../jellyFish_part/03_leg5.png</filename>
-            <filename>../jellyFish_part/03_leg6.png</filename>
-            <filename>../jellyFish_part/03_leg7.png</filename>
-            <filename>../jellyFish_part/03_leg8.png</filename>
-            <filename>../jellyFish_part/03_leg9.png</filename>
-            <filename>../jellyFish_part/03_leg10.png</filename>
-            <filename>../largeFish_rewards/04_whole_body.png</filename>
-            <filename>../largeFish_rewards/04_body.png</filename>
-            <filename>../largeFish_rewards/04_flipper.png</filename>
-            <filename>../largeFish_rewards/04_front_eyes.png</filename>
-            <filename>../octopus_part/05_whole_body.png</filename>
-            <filename>../octopus_part/05_eyes.png</filename>
-            <filename>../octopus_part/05_leg1.png</filename>
-            <filename>../octopus_part/05_leg2.png</filename>
-            <filename>../octopus_part/05_leg3.png</filename>
-            <filename>../octopus_part/05_leg4.png</filename>
-            <filename>../octopus_part/05_leg5.png</filename>
-            <filename>../octopus_part/05_leg6.png</filename>
-            <filename>../octopus_part/05_octopus_head.png</filename>
-            <filename>../seagull/06_whole_seagull.png</filename>
-            <filename>../seagull/06_eyes.png</filename>
-            <filename>../seagull/06_head.png</filename>
-            <filename>../seagull/06_lower_lip.png</filename>
-            <filename>../seagull/06_path8769.png</filename>
-            <filename>../seagull/06_tail.png</filename>
-            <filename>../seagull/06_upper_lip.png</filename>
-            <filename>../seagull/06_wing.png</filename>
-            <filename>../seagull/06_body.png</filename>
-            <filename>../swordFish_parts/07_whole_body.png</filename>
-            <filename>../swordFish_parts/07_fish_body.png</filename>
-            <filename>../swordFish_parts/07_fish_eyes.png</filename>
-            <filename>../swordFish_parts/07_tail.png</filename>
-            <filename>../swordFish_parts/07_teeth.png</filename>
-            <filename>../Lobster/body.png</filename>
-            <filename>../Lobster/claw.png</filename>
-            <filename>../Lobster/claw_2.png</filename>
-            <filename>../Lobster/claw_2_5.png</filename>
-            <filename>../Lobster/claw_3.png</filename>
-            <filename>../Lobster/claw_3_5.png</filename>
-            <filename>../Lobster/tail.png</filename>
-            <filename>../small_fish_reward/11_smaill_fish_2.png</filename>
-            <filename>../small_fish_reward/11_small_fish_1.png</filename>
-            <filename>../small_fish_reward/11_small_fish_3.png</filename>
+            <filename>../fireryLobster_reward/01_whole_body_scaled.png</filename>
+            <filename>../giantClam_parts/02_whole_body_scaled.png</filename>
+            <filename>../jellyFish_part/03_whole_jelly_scaled.png</filename>
+            <filename>../largeFish_rewards/04_whole_body_scaled.png</filename>
             <filename>../Leveleditor/09_ground.png</filename>
             <filename>../Leveleditor/10_icBlock.png</filename>
-            <filename>../turtle_reward/12_body.png</filename>
-            <filename>../turtle_reward/12_eye.png</filename>
-            <filename>../turtle_reward/12_shell.png</filename>
-            <filename>../turtle_reward/12_turtle.png</filename>
-            <filename>../turtle_reward/12_wing_back.png</filename>
-            <filename>../turtle_reward/12_wing_front.png</filename>
-            <filename>../ssl_parts/13_arm_left_1.png</filename>
-            <filename>../ssl_parts/13_arm_left_2.png</filename>
-            <filename>../ssl_parts/13_arm_right_1.png</filename>
-            <filename>../ssl_parts/13_arm_right_2.png</filename>
-            <filename>../ssl_parts/13_body.png</filename>
-            <filename>../ssl_parts/13_crown.png</filename>
-            <filename>../ssl_parts/13_face.png</filename>
-            <filename>../ssl_parts/13_ssl_1.png</filename>
-            <filename>../ssl_parts/13_ssl_2.png</filename>
-            <filename>../ssl_parts/13_tail_1.png</filename>
-            <filename>../ssl_parts/13_tail_2.png</filename>
+            <filename>../Lobster/08_wholebody_scaled.png</filename>
+            <filename>../octopus_part/05_whole_body_scaled.png</filename>
+            <filename>../seagull/06_whole_seagull_scaled.png</filename>
+            <filename>../small_fish_reward/11_small_fish_3_scaled.png</filename>
+            <filename>../small_fish_reward/11_smaill_fish_2_scaled.png</filename>
+            <filename>../small_fish_reward/11_small_fish_1_scaled.png</filename>
+            <filename>../swordFish_parts/07_whole_body_scaled.png</filename>
+            <filename>../turtle_reward/12_turtle_scaled.png</filename>
+            <filename>../ssl_parts/13_ssl_1_scaled.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
