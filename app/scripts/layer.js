@@ -26,8 +26,8 @@ function Layer(unit){
   this.unit = unit;
 }
 
-Layer.prototype.width = 8192;
-Layer.prototype.height = 4096;
+Layer.prototype.width = 4096;
+Layer.prototype.height = 2048;
 
 Layer.prototype.init = function(){
   this.sprite.x = Screen.width / 2;
@@ -50,7 +50,7 @@ var Background = new Layer(1);
 
 Background.init = function(){
   this.sprite = PIXI.Sprite.fromImage(Loader.path.backgroundImage);
-  this.scale = 8;
+  this.scale = 4;
   Layer.prototype.init.call(this);
 };
 
@@ -64,7 +64,7 @@ Foreground.init = function(){
     var ps = mouseData.getLocalPosition(self.sprite);
     console.log(ps.x,ps.y);
   };
-  this.scale = 8;
+  this.scale = 4;
   Layer.prototype.init.call(this);
 };
 

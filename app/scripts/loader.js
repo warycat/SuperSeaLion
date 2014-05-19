@@ -1,12 +1,12 @@
 var Loader = (function(){
   var prefix = 'images/';
   var assets = {
-    backgroundImage:'background1.png'
-  , foregroundImage:'foreground1.png'
+    backgroundImage:'background2.png'
+  , foregroundImage:'foreground2.png'
   , gamespaceImage:'random_trans.png'
-  , squidImage:'squid.png'
-  , squidAnim:'squid.anim'
-  , squidJson:'squid.json'
+  , sslAnim:'ssl.json'
+  , atlasImage:'atlas.png'
+  , atlasJson:'atlas.json'
   };
   
   var path = {};
