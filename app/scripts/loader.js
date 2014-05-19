@@ -7,6 +7,19 @@ var Loader = (function(){
   , atlasJson:'atlas.json'
   , atlasImage:'atlas.png'
   , sslAnim:'ssl.anim'
+  , flAnim:'fl.anim'
+  , gc:'gc.anim'
+  , jf:'jf.anim'
+  , lf:'lf.anim'
+  , octopus:'octopus.anim'
+  , lobster:'lobster.anim'
+  , c1:'c1.anim'
+  , c2:'c2.anim'
+  , sg:'sg.anim'
+  , sf:'sf.anim'
+  // , ground:'ground.anim'
+  // , gf:'gf.anim'
+  // , turtle:'turtle.anim'
   };
   
   var path = {};
