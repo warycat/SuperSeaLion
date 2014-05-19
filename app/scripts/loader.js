@@ -4,9 +4,9 @@ var Loader = (function(){
     backgroundImage:'background2.png'
   , foregroundImage:'foreground2.png'
   , gamespaceImage:'random_trans.png'
-  , sslAnim:'ssl.json'
-  , atlasImage:'atlas.png'
   , atlasJson:'atlas.json'
+  , atlasImage:'atlas.png'
+  , sslAnim:'ssl.anim'
   };
   
   var path = {};

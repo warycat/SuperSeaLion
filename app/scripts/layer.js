@@ -73,10 +73,10 @@ var Gamespace = new Layer(1);
 Gamespace.init = function(){
   var texture = PIXI.Texture.fromImage(Loader.path.gamespaceImage);
   this.sprite = new PIXI.TilingSprite(texture,this.width,this.height);
-  var squid = new PIXI.Spine(Loader.path.squidAnim);
-  squid.x = 500;
-  squid.y = 500;
-  squid.state.setAnimationByName('animation',true);
+  var squid = new PIXI.Spine(Loader.path.sslAnim);
+  // squid.x = 500;
+  // squid.y = 500;
+  // squid.state.setAnimationByName('swim',true);
   this.sprite.addChild(squid);
   this.scale = 1;
   Layer.prototype.init.call(this);
