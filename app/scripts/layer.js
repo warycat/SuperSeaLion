@@ -73,12 +73,13 @@ var Gamespace = new Layer(1);
 Gamespace.init = function(){
   var texture = PIXI.Texture.fromImage(Loader.path.gamespaceImage);
   this.sprite = new PIXI.TilingSprite(texture,this.width,this.height);
-  var ssl = new PIXI.Spine(Loader.path.fireryLobsterAnim);
+  var ssl = new PIXI.Spine(Loader.path.sfAnim);
   ssl.x = 500;
   ssl.y = 500;
-  ssl.state.setAnimationByName('dead',true);
+  ssl.state.setAnimationByName('swim',true);
   this.sprite.addChild(ssl);
   this.scale = 1;
   Layer.prototype.init.call(this);
+  Gamespace.ssl = ssl;
 };
 

@@ -42,6 +42,8 @@ var Camera = (function(){
   function render(){
     // center.x += 10;
     // center.y += 10;
+    Gamespace.ssl.x = center.x + 200;
+    Gamespace.ssl.y = center.y;
     if(Input.keys.A)center.x-=speed;
     if(Input.keys.D)center.x+=speed;
     if(Input.keys.W)center.y-=speed;
