@@ -71,15 +71,24 @@ Foreground.init = function(){
 var Gamespace = new Layer(1);
 
 Gamespace.init = function(){
+  this.sprite = new PIXI.DisplayObjectContainer();
+  console.log(this.sprite);
   var texture = PIXI.Texture.fromImage(Loader.path.gamespaceImage);
-  this.sprite = new PIXI.TilingSprite(texture,this.width,this.height);
+  this.tiles = new PIXI.TilingSprite(texture,this.width,this.height);
+  this.sprite.addChild(this.tiles);
   var ssl = new PIXI.Spine(Loader.path.sfAnim);
   ssl.x = 500;
   ssl.y = 500;
+  ssl.scale = {x:0.5,y:0.5};
   ssl.state.setAnimationByName('swim',true);
   this.sprite.addChild(ssl);
   this.scale = 1;
   Layer.prototype.init.call(this);
+  ED.addEventListener('tab',Gamespace.edit);
   Gamespace.ssl = ssl;
+};
+
+Gamespace.edit = function(){
+  Gamespace.tiles.visible = !Gamespace.tiles.visible;
 };
 

@@ -6,6 +6,10 @@ var Input = (function(){
   function keydown(event){
     var keyCode = event.keyCode;
     var keyChar = String.fromCharCode(keyCode);
+    if(keyCode === 9){
+      event.preventDefault();
+      ED.dispatchEvent({type:'tab'});
+    }
     if(keyString.indexOf(keyChar) !== -1){
       event.preventDefault();
       keys[keyChar] = true;
@@ -20,6 +24,7 @@ var Input = (function(){
       event.preventDefault();
       keys[keyChar] = false;
       if(debug)console.log(keyChar);
+      // ED.dispatchEvent({type:'keyup',key:keyChar});
     }
   }
 
@@ -32,3 +37,4 @@ var Input = (function(){
   , keys:keys
   };
 })();
+
