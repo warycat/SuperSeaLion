@@ -1,12 +1,25 @@
 var Loader = (function(){
   var prefix = 'images/';
   var assets = {
-    backgroundImage:'background1.png'
-  , foregroundImage:'foreground1.png'
+    backgroundImage:'background2.png'
+  , foregroundImage:'foreground2.png'
   , gamespaceImage:'random_trans.png'
-  , squidImage:'squid.png'
-  , squidAnim:'squid.anim'
-  , squidJson:'squid.json'
+  , atlasJson:'atlas.json'
+  , atlasImage:'atlas.png'
+  , sslAnim:'ssl.anim'
+  , flAnim:'fl.anim'
+  , gcAnim:'gc.anim'
+  , jfAnim:'jf.anim'
+  , lfAnim:'lf.anim'
+  , octopusAnim:'octopus.anim'
+  , lobsterAnim:'lobster.anim'
+  , c1Anim:'c1.anim'
+  , c2Anim:'c2.anim'
+  , sgAnim:'sg.anim'
+  , sfAnim:'sf.anim'
+  // , groundAnim:'ground.anim'
+  // , gfAnim:'gf.anim'
+  // , turtleAnim:'turtle.anim'
   };
   
   var path = {};
