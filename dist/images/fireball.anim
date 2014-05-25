@@ -1,0 +1,50 @@
+{
+"bones": [
+	{ "name": "root" }
+],
+"slots": [
+	{ "name": "fireball", "bone": "root", "attachment": "fireball" }
+],
+"skins": {
+	"default": {
+		"fireball": {
+			"fireball": { "scaleX": 1.5, "width": 64, "height": 64 }
+		}
+	}
+},
+"animations": {
+	"animation": {},
+	"fire": {
+		"slots": {
+			"fireball": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.3333, "name": "fireball" },
+					{ "time": 0.6666, "name": "fireball" }
+				]
+			}
+		},
+		"bones": {
+			"root": {
+				"rotate": [
+					{ "time": 0.3333, "angle": 0 },
+					{ "time": 0.4, "angle": 90 },
+					{ "time": 0.5, "angle": 180 },
+					{ "time": 0.5666, "angle": 270 },
+					{ "time": 0.6666, "angle": 0 }
+				],
+				"translate": [
+					{ "time": 0.3333, "x": 0, "y": 0, "curve": "stepped" },
+					{ "time": 0.6666, "x": 0, "y": 0 }
+				],
+				"scale": [
+					{ "time": 0.3333, "x": 1, "y": 1 },
+					{ "time": 0.5, "x": 1.5, "y": 1.5, "curve": "stepped" },
+					{ "time": 0.5666, "x": 1.5, "y": 1.5, "curve": "stepped" },
+					{ "time": 0.6666, "x": 1.5, "y": 1.5 }
+				]
+			}
+		}
+	}
+}
+}

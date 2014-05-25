@@ -157,8 +157,6 @@ var Camera = (function(){
 
 })();
 
-
-
 var Renderer = (function(){
   var renderer = new PIXI.autoDetectRenderer(Screen.width, Screen.height);
   var paused = true;
@@ -186,6 +184,7 @@ var Renderer = (function(){
 
   function animate(){
     if(paused)return;
+
     Camera.render();
     renderer.render(Screen.stage);
     requestAnimFrame(animate);
