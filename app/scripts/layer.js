@@ -22,12 +22,14 @@ var Screen = (function(){
 })();
 
 
-function Layer(unit){
+var Layer = function(unit){
   this.unit = unit;
-}
+};
 
-Layer.prototype.width = 4096;
+Layer.prototype.width = 4096 * 10;
 Layer.prototype.height = 2048;
+Layer.prototype.imageWidth = 1024 * 10;
+Layer.prototype.imageHeight = 512;
 
 Layer.prototype.init = function(){
   this.sprite.x = Screen.width / 2;
@@ -38,32 +40,30 @@ Layer.prototype.init = function(){
 };
 
 Layer.prototype.focus = function(center,zoom){
-  var x = center.x / this.width;
-  var y = center.y / this.height;
+  var x = center.x / Layer.prototype.width;
+  var y = center.y / Layer.prototype.height;
   this.sprite.scale = {x: this.scale * this.unit * zoom, y: this.scale * this.unit * zoom};
   this.sprite.x = Screen.width / 2 - center.x + this.width * (1- this.unit*zoom) * x;
-  this.sprite.y = Screen.height / 2 - center.y + this.height*(1- this.unit*zoom) * y;
+  this.sprite.y = Screen.height / 2 - center.y + this.height * (1- this.unit*zoom) * y;
 
 };
 
-var Background = new Layer(1);
+var Background = new Layer(0.6);
 
 Background.init = function(){
-  this.sprite = PIXI.Sprite.fromImage(Loader.path.backgroundImage);
+  this.sprite = new PIXI.DisplayObjectContainer();
+  var tilesTexture = PIXI.Texture.fromImage(Loader.path.backgroundImage);
+  this.tiles = new PIXI.TilingSprite(tilesTexture, Layer.prototype.imageWidth, Layer.prototype.imageHeight);
+  this.sprite.addChild(this.tiles);
   this.scale = 4;
   Layer.prototype.init.call(this);
 };
 
-var Foreground = new Layer(1);
+var Foreground = new Layer(0.8);
 
 Foreground.init = function(){
-  var self = this;
-  this.sprite = PIXI.Sprite.fromImage(Loader.path.foregroundImage);
-  this.sprite.setInteractive(true);
-  this.sprite.mousedown = function(mouseData){
-    var ps = mouseData.getLocalPosition(self.sprite);
-    console.log(ps.x,ps.y);
-  };
+  var tilesTexture = PIXI.Texture.fromImage(Loader.path.foregroundImage);
+  this.sprite = new PIXI.TilingSprite(tilesTexture,Layer.prototype.imageWidth,Layer.prototype.imageHeight);
   this.scale = 4;
   Layer.prototype.init.call(this);
 };
@@ -71,18 +71,32 @@ Foreground.init = function(){
 var Gamespace = new Layer(1);
 
 Gamespace.init = function(){
+  this.isEditing = true;
+  this.enemyID = 1;
   ED.addEventListener('tab',Gamespace.edit);
+  ED.addEventListener('new',Gamespace.spawn);
+  ED.addEventListener('space',Gamespace.change);
   this.sprite = new PIXI.DisplayObjectContainer();
   var tilesTexture = PIXI.Texture.fromImage(Loader.path.gamespaceImage);
   this.tiles = new PIXI.TilingSprite(tilesTexture,this.width,this.height);
+  this.sprite.setInteractive(true);
+  this.sprite.hitArea = new PIXI.Rectangle(0,0,Layer.prototype.width,Layer.prototype.height);
+  this.sprite.mousedown = function(mouseData){
+    var ps = mouseData.getLocalPosition(Gamespace.sprite);
+    if(Gamespace.isEditing){
+      ED.dispatchEvent({type:'new',position:ps});
+    }
+  };
+
   this.sprite.addChild(this.tiles);
   this.scale = 1;
   Layer.prototype.init.call(this);
   this.setup();
 };
 
-Gamespace.edit = function(){
-  Gamespace.tiles.visible = !Gamespace.tiles.visible;
+Gamespace.edit = function(event){
+  Gamespace.isEditing = !Gamespace.isEditing;
+  Gamespace.tiles.visible = Gamespace.isEditing;
 };
 
 Gamespace.setup = function(){
@@ -93,4 +107,16 @@ Gamespace.setup = function(){
   ssl.state.setAnimationByName('swim',true);
   this.sprite.addChild(ssl);
   this.ssl = ssl;
+};
+
+Gamespace.change = function(event){
+  if(!Gamespace.isEditing) return;
+  Gamespace.enemyID++;
+  if(Gamespace.enemyID > 8) Gamespace.enemyID = 1;
+  // console.log(event);
+};
+
+Gamespace.spawn = function(event){
+  var position = event.position;
+  var enemy = new Enemy(Gamespace.enemyID,position);
 };

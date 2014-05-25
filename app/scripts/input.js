@@ -1,7 +1,7 @@
 var Input = (function(){
   var keys = {};
   var debug = false;
-  var keyString = 'ASDQWEZXCVBN';
+  var keyString = 'ASDQWEZXCVBN ';
 
   function keydown(event){
     var keyCode = event.keyCode;
@@ -14,6 +14,7 @@ var Input = (function(){
       event.preventDefault();
       keys[keyChar] = true;
       if(debug)console.log(keyChar);
+      if(keyChar === ' ')ED.dispatchEvent({type:'space'});
     }
   }
 

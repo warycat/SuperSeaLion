@@ -25,15 +25,80 @@ var SSL = (function(){
   };
 })();
 
+// 1 fireryLobster  // fl.anim swim, dead
+// 2 giantClam     // gc.anim  swim, dead
+// 3 jellyFish //jf.anim   attack, float, dead
+// 4 largeFish //lf.anim   swim, dead
+// 5 octopus //octopus.anim  swim, dead, attack
+// 6 seagull //sg.anim   fly, dive, bite, dead
+// 7 swordFish //sf.anim   swim, dead, jab
+// 8 lobster //lobster.anim  both_attack, top_attack, bottom_attack, dead
+// 9 ground
+// // 10 iceBlock
+// 11  groupFish //gf.anim   swim
+// 12  turtle  //turtle.anim walk, dead, defend
+// 13  ssl //ssl.anim    fire, flip, idle, jump, run, swim, ultimate
+// 14  fireball  //fireball.anim fire
+// 15  ulti  //ulti.anim   ulti
+// 16  claw1 //c1.anim   both_attack, top_attack, bottom_attack
+// 17  claw2 //c2.anim   both_attack, top_attack, bottom_attack
+
+var EnemyDatas = [
+  {
+    name:'flAnim'
+  , anim:'swim'
+  }
+, {
+    name:'gcAnim'
+  , anim:'swim'
+  }
+, {
+    name:'jfAnim'
+  , anim:'float'
+  }
+, {
+    name:'lfAnim'
+  , anim:'swim'
+  }
+, {
+    name:'octopusAnim'
+  , anim:'swim'
+  }
+, {
+    name:'sgAnim'
+  , anim:'fly'
+  }
+, {
+    name:'sfAnim'
+  , anim:'swim'
+  }
+, {
+    name:'lobsterAnim'
+  , anim:'both_attack'
+  }
+];
+
+var Enemy = function(enemyID, position){
+  var enemys = ['flAnim','gcAnim','jfAnim','lfAnim','octopusAnim','sgAnim','sfAnim','lobsterAnim'];
+  var enemyData = EnemyDatas[enemyID-1];
+  console.log(Loader.path[enemyData.name],position);
+  var sprite = new PIXI.Spine(Loader.path[enemyData.name]);
+  sprite.position = position;
+  sprite.scale = {x:0.5,y:0.5};
+  sprite.state.setAnimationByName(enemyData.anim,true);
+  Gamespace.sprite.addChild(sprite);
+};
+
+
+
+
 var Camera = (function(){
   var width = 960;
   var height = 480;
   var zoom = 1;
   var speed = 10;
-  var backgroundUnit = 0.5;
-  var foregroundUnit = 1;
-  var xlimit = Screen.width/2;
-  var ylimit = Screen.height/2;
+  var xlimit = Screen.width/2 + 128 * 6;
+  var ylimit = Screen.height/2 + 128 * 2;
   var center = {
     x:0
   , y:0
@@ -56,12 +121,6 @@ var Camera = (function(){
     if(Input.keys.N)backgroundUnit/=1.01;
     if(zoom<0.25)zoom=0.25;
     if(zoom>1)zoom=1;
-    if(foregroundUnit<0.5)foregroundUnit = 0.5;
-    if(foregroundUnit>1)foregroundUnit = 1;
-    if(backgroundUnit<0.25)backgroundUnit = 0.25;
-    if(backgroundUnit>1)backgroundUnit = 1;
-    Background.unit = backgroundUnit;
-    Foreground.unit = foregroundUnit;
     if(center.x<xlimit) center.x=xlimit;
     if(center.x>Gamespace.width-xlimit) center.x = Gamespace.width - xlimit;
     if(center.y<ylimit) center.y = ylimit;
