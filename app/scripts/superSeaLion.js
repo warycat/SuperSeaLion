@@ -2,6 +2,7 @@ var SSL = (function(){
   var width = 100;
   var height = 100;
   var health = 10;
+  var sprite;
   var acceleration = {
     x:1
   , y:1
@@ -15,6 +16,15 @@ var SSL = (function(){
   , y:0
   };
 
+  function init(){
+    var sprite = new PIXI.Spine(Loader.path.sslAnim);
+    sprite.position = {x:1000,y:1024};
+    sprite.scale = {x:0.5,y:0.5};
+    sprite.state.setAnimationByName('swim',true);
+    Gamespace.sprite.addChild(sprite);
+    this.sprite = sprite;
+  }
+
   return {
     width:width
   , height:height
@@ -22,6 +32,8 @@ var SSL = (function(){
   , center:center
   , velocity:velocity
   , acceleration:acceleration
+  , init:init
+  , sprite:sprite
   };
 })();
 
@@ -93,10 +105,10 @@ var Enemy = function(enemyID, position){
 
 
 var Camera = (function(){
-  var width = 960;
-  var height = 480;
+  var width = 1136;
+  var height = 640;
   var zoom = 1;
-  var speed = 10;
+  var speed = 20;
   var xlimit = Screen.width/2 + 128 * 6;
   var ylimit = Screen.height/2 + 128 * 2;
   var center = {
@@ -105,26 +117,35 @@ var Camera = (function(){
   };
 
   function render(){
-    // center.x += 10;
-    // center.y += 10;
-    Gamespace.ssl.x = center.x - 200;
-    Gamespace.ssl.y = center.y;
-    if(Input.keys.A)center.x-=speed;
-    if(Input.keys.D)center.x+=speed;
-    if(Input.keys.W)center.y-=speed;
-    if(Input.keys.S)center.y+=speed;
-    if(Input.keys.Z)zoom*=1.01;
-    if(Input.keys.X)zoom/=1.01;
-    if(Input.keys.C)foregroundUnit*=1.01;
-    if(Input.keys.V)foregroundUnit/=1.01;
-    if(Input.keys.B)backgroundUnit*=1.01;
-    if(Input.keys.N)backgroundUnit/=1.01;
-    if(zoom<0.25)zoom=0.25;
-    if(zoom>1)zoom=1;
-    if(center.x<xlimit) center.x=xlimit;
-    if(center.x>Gamespace.width-xlimit) center.x = Gamespace.width - xlimit;
-    if(center.y<ylimit) center.y = ylimit;
-    if(center.y> Gamespace.height - ylimit) center.y = Gamespace.height - ylimit;
+    SSL.sprite.position.x += 10;
+    if(Gamespace.isEditing){
+      if(Input.keys.A)center.x-=speed;
+      if(Input.keys.D)center.x+=speed;
+      if(Input.keys.W)center.y-=speed;
+      if(Input.keys.S)center.y+=speed;
+      if(Input.keys.Z)zoom*=1.01;
+      if(Input.keys.X)zoom/=1.01;
+      if(Input.keys.C)foregroundUnit*=1.01;
+      if(Input.keys.V)foregroundUnit/=1.01;
+      if(Input.keys.B)backgroundUnit*=1.01;
+      if(Input.keys.N)backgroundUnit/=1.01;
+      if(zoom<0.25)zoom=0.25;
+      if(zoom>1)zoom=1;
+      if(center.x<xlimit) center.x=xlimit;
+      if(center.x>Gamespace.width-xlimit) center.x = Gamespace.width - xlimit;
+      if(center.y<ylimit) center.y = ylimit;
+      if(center.y> Gamespace.height - ylimit) center.y = Gamespace.height - ylimit;
+    }else{
+      if(Input.keys.Q)SSL.sprite.position.y += speed;
+      if(Input.keys.E)SSL.sprite.position.y -= speed;
+      center.x = SSL.sprite.position.x;
+      center.y = SSL.sprite.position.y;
+      zoom = 1;
+      if(center.x<xlimit) center.x=xlimit;
+      if(center.x>Gamespace.width-xlimit) center.x = Gamespace.width - xlimit;
+      if(center.y<ylimit) center.y = ylimit;
+      if(center.y> Gamespace.height - ylimit) center.y = Gamespace.height - ylimit;
+    }
     Background.focus(center,zoom);
     Foreground.focus(center,zoom);
     Gamespace.focus(center,zoom);
@@ -151,7 +172,7 @@ var Renderer = (function(){
 
   function resize(){
     renderer.view.style.width = $(window).width() + 'px';
-    renderer.view.style.height = $(window).width()/1.5 + 'px';
+    renderer.view.style.height = $(window).width()/1136 * 640 + 'px';
   }
 
   function play(){

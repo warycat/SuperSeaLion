@@ -10,7 +10,7 @@ stats.domElement.style.top = '0px';
 document.body.appendChild( stats.domElement );
 
 var Screen = (function(){
-  var width = 960;
+  var width = 1136;
   var height = 640;
   var stage = new PIXI.Stage(0xF0FFFF, true);
 
@@ -26,9 +26,9 @@ var Layer = function(unit){
   this.unit = unit;
 };
 
-Layer.prototype.width = 4096 * 10;
+Layer.prototype.width = 4096 * 5;
 Layer.prototype.height = 2048;
-Layer.prototype.imageWidth = 1024 * 10;
+Layer.prototype.imageWidth = 1024 * 5;
 Layer.prototype.imageHeight = 512;
 
 Layer.prototype.init = function(){
@@ -71,7 +71,7 @@ Foreground.init = function(){
 var Gamespace = new Layer(1);
 
 Gamespace.init = function(){
-  this.isEditing = true;
+  this.isEditing = false;
   this.enemyID = 1;
   ED.addEventListener('tab',Gamespace.edit);
   ED.addEventListener('new',Gamespace.spawn);
@@ -79,6 +79,7 @@ Gamespace.init = function(){
   this.sprite = new PIXI.DisplayObjectContainer();
   var tilesTexture = PIXI.Texture.fromImage(Loader.path.gamespaceImage);
   this.tiles = new PIXI.TilingSprite(tilesTexture,this.width,this.height);
+  this.tiles.visible = false;
   this.sprite.setInteractive(true);
   this.sprite.hitArea = new PIXI.Rectangle(0,0,Layer.prototype.width,Layer.prototype.height);
   this.sprite.mousedown = function(mouseData){
@@ -100,13 +101,13 @@ Gamespace.edit = function(event){
 };
 
 Gamespace.setup = function(){
-  var ssl = new PIXI.Spine(Loader.path.sfAnim);
-  ssl.x = 500;
-  ssl.y = 500;
-  ssl.scale = {x:0.5,y:0.5};
-  ssl.state.setAnimationByName('swim',true);
-  this.sprite.addChild(ssl);
-  this.ssl = ssl;
+  // var ssl = new PIXI.Spine(Loader.path.sfAnim);
+  // ssl.x = 500;
+  // ssl.y = 500;
+  // ssl.scale = {x:0.5,y:0.5};
+  // ssl.state.setAnimationByName('swim',true);
+  // this.sprite.addChild(ssl);
+  // this.ssl = ssl;
 };
 
 Gamespace.change = function(event){
