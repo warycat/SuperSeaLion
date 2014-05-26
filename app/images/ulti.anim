@@ -3,12 +3,15 @@
 	{ "name": "root" }
 ],
 "slots": [
-	{ "name": "ulti", "bone": "root", "attachment": "ulti" }
+	{ "name": "ulti", "bone": "root", "attachment": "ulti_1" }
 ],
 "skins": {
 	"default": {
 		"ulti": {
-			"ulti": { "width": 256, "height": 128 }
+			"ulti_1": { "width": 256, "height": 128 },
+			"ulti_2": { "width": 256, "height": 128 },
+			"ulti_3": { "width": 256, "height": 128 },
+			"ulti_4": { "width": 256, "height": 128 }
 		}
 	}
 },
@@ -18,9 +21,11 @@
 		"slots": {
 			"ulti": {
 				"attachment": [
-					{ "time": 0, "name": null },
-					{ "time": 0.3333, "name": "ulti" },
-					{ "time": 0.5333, "name": null }
+					{ "time": 0, "name": "ulti_1" },
+					{ "time": 0.1666, "name": "ulti_2" },
+					{ "time": 0.3333, "name": "ulti_3" },
+					{ "time": 0.5, "name": "ulti_4" },
+					{ "time": 0.6666, "name": "ulti_1" }
 				]
 			}
 		},
@@ -28,20 +33,23 @@
 			"root": {
 				"rotate": [
 					{ "time": 0, "angle": 0, "curve": "stepped" },
+					{ "time": 0.1666, "angle": 0, "curve": "stepped" },
+					{ "time": 0.3333, "angle": 0, "curve": "stepped" },
+					{ "time": 0.5, "angle": 0, "curve": "stepped" },
 					{ "time": 0.6666, "angle": 0 }
 				],
 				"translate": [
-					{ "time": 0, "x": 0, "y": 0 },
-					{ "time": 0.3333, "x": 115.62, "y": 0 },
-					{ "time": 0.4, "x": 293.51, "y": 0 },
-					{ "time": 0.5, "x": 776.16, "y": 0 },
+					{ "time": 0, "x": 0, "y": 0, "curve": "stepped" },
+					{ "time": 0.1666, "x": 0, "y": 0, "curve": "stepped" },
+					{ "time": 0.3333, "x": 0, "y": 0, "curve": "stepped" },
+					{ "time": 0.5, "x": 0, "y": 0, "curve": "stepped" },
 					{ "time": 0.6666, "x": 0, "y": 0 }
 				],
 				"scale": [
-					{ "time": 0, "x": 1, "y": 1 },
-					{ "time": 0.3333, "x": 0.47, "y": 0.74 },
-					{ "time": 0.4, "x": 1, "y": 1 },
-					{ "time": 0.5, "x": 5, "y": 2 },
+					{ "time": 0, "x": 1, "y": 1, "curve": "stepped" },
+					{ "time": 0.1666, "x": 1, "y": 1, "curve": "stepped" },
+					{ "time": 0.3333, "x": 1, "y": 1, "curve": "stepped" },
+					{ "time": 0.5, "x": 1, "y": 1, "curve": "stepped" },
 					{ "time": 0.6666, "x": 1, "y": 1 }
 				]
 			}
