@@ -1,26 +1,27 @@
 var Loader = (function(){
   var prefix = 'images/';
   var assets = {
-    backgroundImage:'background2.png'
-  , foregroundImage:'foreground2.png'
+    backgroundImage:'background3.png'
+  , foregroundImage:'foreground3.png'
   , gamespaceImage:'random_trans.png'
   , atlasJson:'atlas.json'
   , atlasImage:'atlas.png'
   , sslAnim:'ssl.anim'
-  , flAnim:'fl.anim' // 1
-  , gcAnim:'gc.anim' // 2
-  , jfAnim:'jf.anim' // 3
-  , lfAnim:'lf.anim' // 4
-  , octopusAnim:'octopus.anim' // 5
-  , sgAnim:'sg.anim' // 6
-  , sfAnim:'sf.anim' // 7
-  , lobsterAnim:'lobster.anim' // 8
-  // , groundAnim:'ground.anim' // 9
-  // , iceblock:'iceblock.anim' // 10
+  , fireballAnim:'fireball.anim'
+  , ultiAnim:'ulti.anim'
+  , groundAnim:'ground.anim'
+  , flAnim:'fl.anim'
+  , gcAnim:'gc.anim'
+  , jfAnim:'jf.anim'
+  , lfAnim:'lf.anim'
+  , octopusAnim:'octopus.anim'
+  , sgAnim:'sg.anim'
+  , sfAnim:'sf.anim'
+  , gfAnim:'gf.anim'
+  , turtleAnim:'turtle.anim'
+  , lobsterAnim:'lobster.anim'
   , c1Anim:'c1.anim'
   , c2Anim:'c2.anim'
-  // , gfAnim:'gf.anim'
-  // , turtleAnim:'turtle.anim'
   };
   
   var path = {};

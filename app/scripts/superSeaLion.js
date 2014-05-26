@@ -1,45 +1,22 @@
+var SSL = new Circle({x:0,y:1024});
 
+SSL.init = function(){
+  this.speed = 1;
+  var sprite = new PIXI.Spine(Loader.path.sslAnim);
+  sprite.position = this.position;
+  sprite.scale = {x:0.5,y:0.5};
+  sprite.state.setAnimationByName('swim',true);
+  Gamespace.sprite.addChild(sprite);
+  this.sprite = sprite;
+  this.vx = 5;
+};
 
+SSL.render = function(){
+  if(Input.keys.Q)this.ay += this.speed;
+  if(Input.keys.E)this.ay -= this.speed;
+  Circle.prototype.render.call(SSL);
+};
 
-
-var SSL = (function(){
-  var width = 100;
-  var height = 100;
-  var health = 10;
-  var sprite;
-  var acceleration = {
-    x:1
-  , y:1
-  };
-  var velocity = {
-    x:10
-  , y:10
-  };
-  var center = {
-    x:0
-  , y:0
-  };
-
-  function init(){
-    var sprite = new PIXI.Spine(Loader.path.sslAnim);
-    sprite.position = {x:1000,y:1024};
-    sprite.scale = {x:0.5,y:0.5};
-    sprite.state.setAnimationByName('swim',true);
-    Gamespace.sprite.addChild(sprite);
-    this.sprite = sprite;
-  }
-
-  return {
-    width:width
-  , height:height
-  , health:health
-  , center:center
-  , velocity:velocity
-  , acceleration:acceleration
-  , init:init
-  , sprite:sprite
-  };
-})();
 
 // 1 fireryLobster  // fl.anim swim, dead
 // 2 giantClam     // gc.anim  swim, dead
@@ -61,6 +38,10 @@ var SSL = (function(){
 
 var EnemyDatas = [
   {
+    name:'groundAnim'
+  , anim:'default'
+  }
+, {
     name:'flAnim'
   , anim:'swim'
   }
@@ -89,14 +70,39 @@ var EnemyDatas = [
   , anim:'swim'
   }
 , {
+    name:'gfAnim'
+  , anim:'swim'
+  }
+, {
+    name:'turtleAnim'
+  , anim:'walk'
+  }
+, {
     name:'lobsterAnim'
   , anim:'both_attack'
   }
+, {
+    name:'c1Anim'
+  , anim:'both_attack'
+  }
+, {
+    name:'c2Anim'
+  , anim:'both_attack'
+  }
+, {
+    name:'fireballAnim'
+  , anim:'fire'
+  }
+, {
+    name:'ultiAnim'
+  , anim:'ulti'
+  }
 ];
 
+
 var Enemy = function(enemyID, position){
-  var enemys = ['flAnim','gcAnim','jfAnim','lfAnim','octopusAnim','sgAnim','sfAnim','lobsterAnim'];
-  var enemyData = EnemyDatas[enemyID-1];
+  var enemys = ['groundAnim','flAnim','gcAnim','jfAnim','lfAnim','octopusAnim','sgAnim','sfAnim','gfAnim','lobsterAnim','c1Anim','c2Anim','fireballAnim','ultiAnim'];
+  var enemyData = EnemyDatas[enemyID];
   console.log(Loader.path[enemyData.name],position);
   var sprite = new PIXI.Spine(Loader.path[enemyData.name]);
   sprite.position = position;
@@ -121,7 +127,6 @@ var Camera = (function(){
   };
 
   function render(){
-    SSL.sprite.position.x += 10;
     if(Gamespace.isEditing){
       if(Input.keys.A)center.x-=speed;
       if(Input.keys.D)center.x+=speed;
@@ -140,8 +145,6 @@ var Camera = (function(){
       if(center.y<ylimit) center.y = ylimit;
       if(center.y> Gamespace.height - ylimit) center.y = Gamespace.height - ylimit;
     }else{
-      if(Input.keys.Q)SSL.sprite.position.y += speed;
-      if(Input.keys.E)SSL.sprite.position.y -= speed;
       center.x = SSL.sprite.position.x;
       center.y = SSL.sprite.position.y;
       zoom = 1;

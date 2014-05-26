@@ -7,7 +7,7 @@ stats.domElement.style.position = 'absolute';
 stats.domElement.style.left = '0px';
 stats.domElement.style.top = '0px';
 
-// document.body.appendChild( stats.domElement );
+document.body.appendChild( stats.domElement );
 
 var Screen = (function(){
   var width = 1136;
@@ -72,7 +72,7 @@ var Gamespace = new Layer(1);
 
 Gamespace.init = function(){
   this.isEditing = false;
-  this.enemyID = 1;
+  this.enemyID = 0;
   ED.addEventListener('tab',Gamespace.edit);
   ED.addEventListener('new',Gamespace.spawn);
   ED.addEventListener('space',Gamespace.change);
@@ -113,7 +113,7 @@ Gamespace.setup = function(){
 Gamespace.change = function(event){
   if(!Gamespace.isEditing) return;
   Gamespace.enemyID++;
-  if(Gamespace.enemyID > 8) Gamespace.enemyID = 1;
+  if(Gamespace.enemyID > 14) Gamespace.enemyID = 0;
   // console.log(event);
 };
 

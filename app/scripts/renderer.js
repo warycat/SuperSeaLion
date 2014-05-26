@@ -32,7 +32,7 @@ var Renderer = (function(){
 
   function animate(){
     if(paused)return;
-
+    World.render();
     Camera.render();
     renderer.render(Screen.stage);
     requestAnimFrame(animate);
