@@ -15,6 +15,8 @@ var Input = (function(){
       keys[keyChar] = true;
       if(debug)console.log(keyChar);
       if(keyChar === ' ')ED.dispatchEvent({type:'space'});
+      if(keyChar === 'Q')ED.dispatchEvent({type:'jump'});
+      if(keyChar === 'E')ED.dispatchEvent({type:'fire'});
     }
   }
 

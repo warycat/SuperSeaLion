@@ -30,15 +30,18 @@ var Circle = function(position, length){
 };
 
 Circle.prototype.render = function(){
-  this.x = this.x + this.vx;
-  this.y = this.y + this.vy;
   this.vx = this.vx + this.ax;
   this.vy = this.vy + this.ay;
+  this.vx = (this.vx < - this.mvx) ? - this.mvx : this.vx;
+  this.vx = (this.vx > this.mvx) ? this.mvx : this.vx;
+  this.vy = (this.vy < - this.mvy) ? - this.mvy : this.vy;
+  this.vy = (this.vy > this.mvy) ? this.mvy : this.vy;
+  this.x = this.x + this.vx;
+  this.y = this.y + this.vy;
   this.x = (this.x<0)? 0 : this.x;
-  this.x = (this.x>Gamespace.width)? Gamespace.width : this.x;
+  this.x = (this.x>Gamespace.width) ? Gamespace.width : this.x;
   this.y = (this.y<0)? 0 : this.y;
-  this.y = (this.y>Gamespace.height)? Gamespace.height : this.y;
-
+  this.y = (this.y>Gamespace.height) ? Gamespace.height : this.y;
   this.sprite.position = {x:this.x,y:this.y};
 };
 
@@ -62,9 +65,8 @@ Circle.prototype.collideDash = function(dash){
   return x1 > x2 && x1 < x2 + l2 && y1 > y2 - l1 && y1 < y2 + l1;
 };
 
-var Gravity = function(y){
-  if(y<1024)return 10;
-  else return 0;
+Circle.prototype.gravity = function(){
+  return (this.y < 1024) ? 1 : 0;
 };
 
 
