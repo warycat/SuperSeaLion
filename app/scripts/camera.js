@@ -29,7 +29,7 @@ var Camera = (function(){
       if(center.y<ylimit) center.y = ylimit;
       if(center.y> Gamespace.height - ylimit) center.y = Gamespace.height - ylimit;
     }else{
-      center.x = SSL.sprite.position.x;
+      center.x = SSL.sprite.position.x + 300;
       center.y = SSL.sprite.position.y;
       zoom = 1;
       if(center.x<xlimit) center.x=xlimit;

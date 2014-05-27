@@ -42,6 +42,12 @@ var Loader = (function(){
     Foreground.init();
     Gamespace.init();
     SSL.init();
+    console.log(World.dashes);
+
+    for(var i in World.dashes){
+      var dash = World.dashes[i];
+      dash.init();
+    }
     Renderer.play();
   };
 

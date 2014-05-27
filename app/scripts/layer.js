@@ -45,7 +45,6 @@ Layer.prototype.focus = function(center,zoom){
   this.sprite.scale = {x: this.scale * this.unit * zoom, y: this.scale * this.unit * zoom};
   this.sprite.x = Screen.width / 2 - center.x + this.width * (1- this.unit*zoom) * x;
   this.sprite.y = Screen.height / 2 - center.y + this.height * (1- this.unit*zoom) * y;
-
 };
 
 var Background = new Layer(0.6);
