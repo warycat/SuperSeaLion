@@ -32,7 +32,9 @@ SSL.render = function(){
       if(this.ay < 0) this.ay = 0;
     }
   }
+
   if(this.y>1024 && state.isComplete())state.setAnimationByName('swim',true);
+  this.mvy = (this.inWater()) ? this.mvy1 : this.mvy2;
   Circle.prototype.render.call(SSL);
 
 
@@ -55,3 +57,42 @@ SSL.jump = function(){
 
   SSL.sprite.state.setAnimationByName('jump');
 };
+
+
+SSL.fire = function(){
+  if(SSL.canFire){
+    if(SSL.sprite.state.current.name === 'fire' && ! SSL.sprite.state.isComplete()){
+      return;
+    }else{
+      SSL.sprite.state.setAnimationByName('fire');
+      var fb = new Fireball(SSL.position);
+    }
+  }else{
+    if(SSL.sprite.state.current.name === 'flip' && ! SSL.sprite.state.isComplete()){
+      return;
+    }else{
+      SSL.sprite.state.setAnimationByName('flip');
+    }
+  }
+
+};
+
+var Fireball = function(position){
+  Circle.prototype.constructor.call(this,position,10);
+  this.vx = 20;
+  this.sprite = new PIXI.Spine(Loader.path.fireballAnim);
+  this.sprite.position = this.position;
+  this.sprite.scale = {x:0.5,y:0.5};
+  this.sprite.state.setAnimationByName('fire',true);
+  Gamespace.sprite.addChild(this.sprite);
+};
+
+Fireball.prototype.render = function(){
+  Circle.prototype.render.call(this);
+};
+
+
+
+
+
+

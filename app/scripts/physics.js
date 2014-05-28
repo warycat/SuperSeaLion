@@ -18,19 +18,19 @@ var Dash = function(position, length){
 };
 
 var Circle = function(position, length){
-  this.x = position.x;
-  this.y = position.y;
+  this.position = position || {x:0,y:0};
+  this.x = this.position.x;
+  this.y = this.position.y;
   this.vx = 0;
   this.vy = 0;
   this.ax = 0;
   this.ay = 0;
-  this.position = position;
   this.length = length;
-  World.circles.push(this);
+  if(position)World.circles.push(this);
 };
 
+
 Circle.prototype.render = function(){
-  this.mvy = (this.inWater()) ? this.mvy1 : this.mvy2;
   this.vx = this.vx + this.ax;
   this.vy = this.vy + this.ay;
   this.vx = (this.vx < - this.mvx) ? - this.mvx : this.vx;
@@ -54,7 +54,7 @@ Circle.prototype.collideCircle = function(circle){
 	var y2 = circle.position.y;
 	var dsquare = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
 	var lsquare = (this.length + circle.length) * (this.length + circle.length);
-	return lsquare < dsquare;
+	return lsquare > dsquare;
 };
 
 Circle.prototype.collideDash = function(dash){

@@ -32,8 +32,6 @@ var Loader = (function(){
   var assetsToLoad = _.map(assets,function(value,key){
     return prefix + value;
   });
-  console.log(path);
-  console.log(assetsToLoad);
 
   var loader = new PIXI.AssetLoader(assetsToLoad);
 
@@ -41,11 +39,12 @@ var Loader = (function(){
     Background.init();
     Foreground.init();
     Gamespace.init();
-    SSL.init();
-    console.log(World.dashes);
-
-    for(var i in World.dashes){
-      var dash = World.dashes[i];
+    for(var i in World.circles){
+      var circle = World.circles[i];
+      circle.init();
+    }
+    for(var j in World.dashes){
+      var dash = World.dashes[j];
       dash.init();
     }
     Renderer.play();

@@ -1,4 +1,35 @@
+var FL = function(position){
+  Circle.prototype.constructor.call(this,position,10);
+};
 
+FL.prototype = new Circle();
+
+FL.prototype.init = function(){
+  this.sprite = new PIXI.Spine(Loader.path.flAnim);
+  this.sprite.position = this.position;
+  this.sprite.scale = {x:0.5,y:0.5};
+  this.sprite.state.setAnimationByName('swim',true);
+  Gamespace.sprite.addChild(this.sprite);
+};
+
+FL.prototype.render = function(){
+  if(this.collideCircle(SSL)){
+    if(this.sprite.state.current.name === 'swim'){
+      this.sprite.state.setAnimationByName('dead');
+      SSL.sprite.state.setAnimationByName('flip');
+      SSL.canFire = true;
+    }
+  }
+};
+
+var fl1 = new FL({x:1000,y:1024});
+
+
+
+
+
+
+// console.log(fl1);
 // 1 fireryLobster  // fl.anim swim, dead
 // 2 giantClam     // gc.anim  swim, dead
 // 3 jellyFish //jf.anim   attack, float, dead
