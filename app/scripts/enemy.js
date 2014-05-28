@@ -24,8 +24,42 @@ FL.prototype.render = function(){
 
 var fl1 = new FL({x:1000,y:1024});
 
+var GC = function(position){
+  Circle.prototype.constructor.call(this,position,10);
+};
 
+GC.prototype = new Circle();
 
+GC.prototype.init = function(){
+  this.sprite = new PIXI.Spine(Loader.path.gcAnim);
+  this.sprite.position = this.position;
+  this.sprite.scale = {x:0.5,y:0.5};
+  this.sprite.state.setAnimationByName('swim',true);
+  Gamespace.sprite.addChildAt(this.sprite,0);
+};
+
+GC.prototype.render = function(){
+  if(this.dead)return;
+  if(this.collideCircle(SSL)){
+    if(SSL.sprite.state.current.name === 'flip'){
+      if(this.sprite.state.current.name === 'swim'){
+        this.sprite.state.setAnimationByName('dead');
+      }
+    }else{
+      if(SSL.sprite.state.current.name !== 'ultimate'){
+        SSL.sprite.state.setAnimationByName('ultimate');
+      }
+    }
+  }
+  if(this.collideCircle(FB)){
+    if(this.sprite.state.current.name === 'swim'){
+      this.sprite.state.setAnimationByName('dead');
+      this.dead = true;
+    }
+  }
+};
+
+var gc1 = new GC({x:2500,y:950});
 
 
 

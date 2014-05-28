@@ -65,7 +65,9 @@ SSL.fire = function(){
       return;
     }else{
       SSL.sprite.state.setAnimationByName('fire');
-      var fb = new Fireball(SSL.position);
+      FB.x = SSL.x;
+      FB.y = SSL.y;
+      FB.sprite.state.setAnimationByName('fire',true);
     }
   }else{
     if(SSL.sprite.state.current.name === 'flip' && ! SSL.sprite.state.isComplete()){
@@ -74,12 +76,14 @@ SSL.fire = function(){
       SSL.sprite.state.setAnimationByName('flip');
     }
   }
-
 };
 
 var Fireball = function(position){
   Circle.prototype.constructor.call(this,position,10);
-  this.vx = 20;
+};
+
+Fireball.prototype.init = function(){
+  this.vx = 24;
   this.sprite = new PIXI.Spine(Loader.path.fireballAnim);
   this.sprite.position = this.position;
   this.sprite.scale = {x:0.5,y:0.5};
@@ -88,8 +92,13 @@ var Fireball = function(position){
 };
 
 Fireball.prototype.render = function(){
+  if(this.sprite.state.isComplete()){
+    this.x = 0;
+  }
   Circle.prototype.render.call(this);
 };
+
+var FB = new Fireball({x:0,y:1024});
 
 
 
