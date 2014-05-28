@@ -1,4 +1,4 @@
-var SSL = new Circle({x:0,y:1024},80);
+var SSL = new Circle({x:500,y:1024},80);
 console.log(SSL);
 
 SSL.init = function(){
@@ -13,7 +13,7 @@ SSL.init = function(){
   this.sprite.scale = {x:0.5,y:0.5};
   this.sprite.state.setAnimationByName('swim',true);
   Gamespace.sprite.addChild(this.sprite);
-  this.vx = 5;
+  this.vx = 3;
 };
 
 SSL.render = function(){
@@ -43,11 +43,11 @@ SSL.render = function(){
 SSL.jump = function(){
   if(SSL.inWater()){
     if(SSL.vy === 0) {
-      SSL.vy = -20;
+      SSL.vy = -15;
     } else if(SSL.vy < 0) {
       SSL.vy = 5;
     } else if (SSL.vy > 0) {
-      SSL.vy = -10;
+      SSL.vy = -8;
     }
   }else{
     if(SSL.sprite.state.current.name === 'jump' && ! SSL.sprite.state.isComplete())return;
@@ -79,7 +79,7 @@ SSL.fire = function(){
 };
 
 var Fireball = function(position){
-  Circle.prototype.constructor.call(this,position,10);
+  Circle.prototype.constructor.call(this,position,40);
 };
 
 Fireball.prototype.init = function(){

@@ -61,7 +61,36 @@ GC.prototype.render = function(){
 
 var gc1 = new GC({x:2500,y:950});
 
+var JF = function(position){
+  Circle.prototype.constructor.call(this,position,20);
+};
 
+JF.prototype = new Circle();
+
+JF.prototype.init = function(){
+  this.A = 5;
+  this.t = 0;
+  this.sprite = new PIXI.Spine(Loader.path.jfAnim);
+  this.sprite.position = this.position;
+  this.sprite.scale = {x:0.5,y:0.5};
+  this.sprite.state.setAnimationByName('float',true);
+  Gamespace.sprite.addChildAt(this.sprite,0);
+};
+
+JF.prototype.render = function(){
+  if(this.dead)return;
+  this.y = this.position.y + this.A * Math.cos(this.t);
+  this.sprite.position.y = this.y;
+  this.t+= 0.05;
+  if(this.collideCircle(SSL)){
+    if(this.sprite.state.current.name === 'float')this.sprite.state.setAnimationByName('attack');
+  }else if(this.collideCircle(FB)){
+    if(this.sprite.state.current.name === 'float')this.sprite.state.setAnimationByName('dead');
+    this.dead = true;
+  }
+};
+
+var jf1 = new JF({x:2500,y:1500});
 
 // console.log(fl1);
 // 1 fireryLobster  // fl.anim swim, dead
