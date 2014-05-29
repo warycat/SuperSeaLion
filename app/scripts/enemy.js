@@ -120,6 +120,94 @@ LF.prototype.render = function(){
 };
 
 var lf1 = new LF({x:2500,y:1200});
+
+var Octopus = function(position){
+  Circle.prototype.constructor.call(this,position,20);
+};
+
+Octopus.prototype = new Circle();
+
+Octopus.prototype.init = function(){
+  Enemy.prototype.init.call(this,5);
+};
+
+Octopus.prototype.render = function(){
+  if(this.collideCircle(SSL)){
+    if(this.sprite.state.current.name === 'swim')this.sprite.state.setAnimationByName('attack');
+    if(SSL.sprite.state.current.name !== 'ultimate'){
+      SSL.sprite.state.setAnimationByName('ultimate');
+    }
+  }else if(this.collideCircle(FB)){
+    if(this.sprite.state.current.name === 'swim')this.sprite.state.setAnimationByName('dead');
+    this.dead = true;
+  }
+};
+
+var o = new Octopus({x:2800,y:1200});
+
+var SG = function(position){
+  Circle.prototype.constructor.call(this,position,20);
+};
+
+SG.prototype = new Circle();
+
+SG.prototype.init = function(){
+  Enemy.prototype.init.call(this,6);
+};
+
+SG.prototype.render = function(){
+  if(this.dead){
+    for(var j in World.dashes){
+      var dash = World.dashes[j];
+      var c = this.collideDash(dash);
+      if(c === 0) continue;
+      if(c === -1){
+        if(this.vy > 0) this.vy = 0;
+        if(this.ay > 0) this.ay = 0;
+      }else if(c === 1){
+        if(this.vy < 0) this.vy = - 0.5 * this.vy;
+        if(this.ay < 0) this.ay = 0;
+      }
+    }
+    Circle.prototype.render.call(this);
+    return;
+  }
+  if(this.collideCircle(FB)){
+    if(this.sprite.state.current.name === 'fly')this.sprite.state.setAnimationByName('dead');
+    this.dead = true;
+    this.ay = 0.7;
+  }
+};
+
+var sg1 = new SG({x:3000,y:700});
+
+var SF = function(position){
+  Circle.prototype.constructor.call(this,position,20);
+};
+
+SF.prototype = new Circle();
+
+SF.prototype.init = function(){
+  this.vx = 2;
+  Enemy.prototype.init.call(this,7);
+};
+
+SF.prototype.render = function(){
+  if(this.dead)return;
+  if(this.collideCircle(SSL)){
+    if(this.sprite.state.current.name === 'jab')this.sprite.state.setAnimationByName('jab',true);
+    if(SSL.sprite.state.current.name !== 'ultimate'){
+      SSL.sprite.state.setAnimationByName('ultimate');
+    }
+  }else if(this.collideCircle(FB)){
+    if(this.sprite.state.current.name === 'jab')this.sprite.state.setAnimationByName('dead');
+    this.dead = true;
+  }
+  Circle.prototype.render.call(this);
+};
+
+var sf1 = new SF({x:1700,y:1600});
+
 // console.log(fl1);
 // 1 fireryLobster  // fl.anim swim, dead
 // 2 giantClam     // gc.anim  swim, dead
@@ -170,7 +258,7 @@ var EnemyDatas = [
   }
 , {
     name:'sfAnim'
-  , anim:'swim'
+  , anim:'jab'
   }
 , {
     name:'gfAnim'
