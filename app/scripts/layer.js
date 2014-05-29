@@ -70,7 +70,7 @@ var Gamespace = new Layer(1);
 
 Gamespace.init = function(){
   this.isEditing = false;
-  this.enemyID = 0;
+  this.enemyID = 1;
   ED.addEventListener('tab',Gamespace.edit);
   ED.addEventListener('new',Gamespace.spawn);
   ED.addEventListener('space',Gamespace.change);
@@ -101,13 +101,14 @@ Gamespace.edit = function(event){
 Gamespace.change = function(event){
   if(!Gamespace.isEditing) return;
   Gamespace.enemyID++;
-  if(Gamespace.enemyID > 14) Gamespace.enemyID = 0;
+  if(Gamespace.enemyID > 10) Gamespace.enemyID = 1;
   // console.log(event);
 };
 
 Gamespace.spawn = function(event){
   var position = event.position;
   var enemy = new Enemy(Gamespace.enemyID,position);
+  AllEnemies.push({enemyid:Gamespace.enemyID,position:position});
 };
 
 var FireButton = (function(){
@@ -146,5 +147,4 @@ var JumpButton = (function(){
     init:init
   };
 })();
-
 

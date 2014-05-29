@@ -63,30 +63,57 @@ var EnemyDatas = [
 
 
 var Enemy = function(enemyid,position){
+  var enemy;
   switch(enemyid){
     case 0:
       break;
     case 1:
+      enemy = new FL(position);
       break;
     case 2:
+      enemy = new GC(position);
       break;
     case 3:
+      enemy = new JF(position);
       break;
     case 4:
+      enemy = new LF(position);
       break;
     case 5:
+      enemy = new Octopus(position);
       break;
     case 6:
+      enemy = new SG(position);
       break;
     case 7:
+      enemy = new SF(position);
       break;
     case 8:
+      enemy = new GF(position);
       break;
     case 9:
+      enemy = new Turtle(position);
       break;
     case 10:
+      enemy = new GC(position);
       break;
   }
+  enemy.init();
+  return enemy;
+};
+
+Enemy.load = function(){
+  for(var i in AllEnemies){
+    var enemydata = AllEnemies[i];
+    new Enemy(enemydata.enemyid,enemydata.position);
+  }
+  ED.addEventListener('print',Enemy.print);
+};
+
+Enemy.print = function(){
+  var json = JSON.stringify(AllEnemies);
+  var blob = new Blob([json], {type: "text/plain;charset=utf-8"});
+  saveAs(blob, "enemies.txt");
 };
 
 Enemy.prototype.init = function(id){
@@ -131,27 +158,21 @@ GC.prototype.init = function(){
 };
 
 GC.prototype.render = function(){
-  if(this.dead)return;
-  if(this.collideCircle(SSL)){
-    if(SSL.sprite.state.current.name === 'flip'){
-      if(this.sprite.state.current.name === 'swim'){
-        this.sprite.state.setAnimationByName('dead');
-      }
-    }else{
-      if(SSL.sprite.state.current.name !== 'ultimate'){
-        SSL.sprite.state.setAnimationByName('ultimate');
-      }
+  if(this.dead){
+    if(this.sprite.state.isComplete()){
+      console.log('xxx');
+      this.sprite.visible = false;
     }
+    return;
   }
+
   if(this.collideCircle(FB)){
-    if(this.sprite.state.current.name === 'swim'){
-      this.sprite.state.setAnimationByName('dead');
-      this.dead = true;
-    }
+    this.sprite.state.setAnimationByName('dead');
+    this.dead = true;
   }
 };
 
-var gc1 = new GC({x:2500,y:950});
+// var gc1 = new GC({x:2500,y:950});
 
 var JF = function(position){
   Circle.prototype.constructor.call(this,position,20);
@@ -338,7 +359,6 @@ Turtle.prototype.render = function(){
   }
   if(this.collideCircle(FB)){
     if(this.sprite.state.current.name !== 'dead'){
-      console.log(this.counter);
       if(this.counter < 10){
         this.sprite.state.setAnimationByName('defend');
       }else{
@@ -355,7 +375,7 @@ var t1 = new Turtle({x:3000,y:950});
 
 
 var Lobster = function(){
-  
+
 };
 // console.log(fl1);
 // 1 fireryLobster  // fl.anim swim, dead

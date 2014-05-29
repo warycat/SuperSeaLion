@@ -41,6 +41,7 @@ var Loader = (function(){
     Gamespace.init();
     FireButton.init();
     JumpButton.init();
+    Enemy.load();
     for(var i in World.circles){
       var circle = World.circles[i];
       circle.init();
