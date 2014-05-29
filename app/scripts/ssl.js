@@ -37,7 +37,6 @@ SSL.render = function(){
   this.mvy = (this.inWater()) ? this.mvy1 : this.mvy2;
   Circle.prototype.render.call(SSL);
 
-
 };
 
 SSL.jump = function(){

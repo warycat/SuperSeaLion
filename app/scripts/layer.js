@@ -21,7 +21,6 @@ var Screen = (function(){
   };
 })();
 
-
 var Layer = function(unit){
   this.unit = unit;
 };
@@ -120,3 +119,42 @@ Gamespace.spawn = function(event){
   var position = event.position;
   var enemy = new Enemy(Gamespace.enemyID,position);
 };
+
+var FireButton = (function(){
+  function init(){
+    var sprite = new PIXI.Sprite.fromFrame('fire_button.png');
+    sprite.setInteractive(true);
+    sprite.anchor = {x:0.5,y:0.5};
+    sprite.scale = {x:2,y:2};
+    sprite.x = Screen.width - 100;
+    sprite.y = Screen.height/2;
+    sprite.tap = function(){
+      ED.dispatchEvent({type:'fire'});
+    };
+    Screen.stage.addChild(sprite);
+  }
+  return {
+    init:init
+  };
+})();
+
+var JumpButton = (function(){
+
+  function init(){
+    var sprite = new PIXI.Sprite.fromFrame('jump_button.png');
+    sprite.setInteractive(true);
+    sprite.anchor = {x:0.5,y:0.5};
+    sprite.scale = {x:2,y:2};
+    sprite.x = 100;
+    sprite.y = Screen.height/2;
+    sprite.tap = function(){
+      ED.dispatchEvent({type:'jump'});
+    };
+    Screen.stage.addChild(sprite);
+  }
+  return {
+    init:init
+  };
+})();
+
+

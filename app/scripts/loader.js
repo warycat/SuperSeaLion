@@ -39,6 +39,8 @@ var Loader = (function(){
     Background.init();
     Foreground.init();
     Gamespace.init();
+    FireButton.init();
+    JumpButton.init();
     for(var i in World.circles){
       var circle = World.circles[i];
       circle.init();

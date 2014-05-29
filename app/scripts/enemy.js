@@ -208,6 +208,8 @@ SF.prototype.render = function(){
 
 var sf1 = new SF({x:1700,y:1600});
 
+
+
 // console.log(fl1);
 // 1 fireryLobster  // fl.anim swim, dead
 // 2 giantClam     // gc.anim  swim, dead
