@@ -1,3 +1,14 @@
+var Enemy = function(){};
+
+Enemy.prototype.init = function(id){
+  var enemyData = EnemyDatas[id];
+  this.sprite = new PIXI.Spine(Loader.path[enemyData.name]);
+  this.sprite.position = this.position;
+  this.sprite.scale = {x:0.5,y:0.5};
+  this.sprite.state.setAnimationByName(enemyData.anim,true);
+  Gamespace.sprite.addChildAt(this.sprite,0);
+};
+
 var FL = function(position){
   Circle.prototype.constructor.call(this,position,10);
 };
@@ -5,11 +16,7 @@ var FL = function(position){
 FL.prototype = new Circle();
 
 FL.prototype.init = function(){
-  this.sprite = new PIXI.Spine(Loader.path.flAnim);
-  this.sprite.position = this.position;
-  this.sprite.scale = {x:0.5,y:0.5};
-  this.sprite.state.setAnimationByName('swim',true);
-  Gamespace.sprite.addChild(this.sprite);
+  Enemy.prototype.init.call(this,1);
 };
 
 FL.prototype.render = function(){
@@ -31,11 +38,7 @@ var GC = function(position){
 GC.prototype = new Circle();
 
 GC.prototype.init = function(){
-  this.sprite = new PIXI.Spine(Loader.path.gcAnim);
-  this.sprite.position = this.position;
-  this.sprite.scale = {x:0.5,y:0.5};
-  this.sprite.state.setAnimationByName('swim',true);
-  Gamespace.sprite.addChildAt(this.sprite,0);
+  Enemy.prototype.init.call(this,2);
 };
 
 GC.prototype.render = function(){
@@ -70,11 +73,7 @@ JF.prototype = new Circle();
 JF.prototype.init = function(){
   this.A = 5;
   this.t = 0;
-  this.sprite = new PIXI.Spine(Loader.path.jfAnim);
-  this.sprite.position = this.position;
-  this.sprite.scale = {x:0.5,y:0.5};
-  this.sprite.state.setAnimationByName('float',true);
-  Gamespace.sprite.addChildAt(this.sprite,0);
+  Enemy.prototype.init.call(this,3);
 };
 
 JF.prototype.render = function(){
@@ -84,6 +83,9 @@ JF.prototype.render = function(){
   this.t+= 0.05;
   if(this.collideCircle(SSL)){
     if(this.sprite.state.current.name === 'float')this.sprite.state.setAnimationByName('attack');
+    if(SSL.sprite.state.current.name !== 'ultimate'){
+      SSL.sprite.state.setAnimationByName('ultimate');
+    }
   }else if(this.collideCircle(FB)){
     if(this.sprite.state.current.name === 'float')this.sprite.state.setAnimationByName('dead');
     this.dead = true;
@@ -92,6 +94,32 @@ JF.prototype.render = function(){
 
 var jf1 = new JF({x:2500,y:1500});
 
+var LF = function(position){
+  Circle.prototype.constructor.call(this,position,20);
+};
+
+LF.prototype = new Circle();
+
+LF.prototype.init = function(){
+  this.vx = -1;
+  Enemy.prototype.init.call(this,4);
+};
+
+LF.prototype.render = function(){
+  if(this.dead)return;
+  if(this.collideCircle(SSL)){
+    if(this.sprite.state.current.name === 'swim')this.sprite.state.setAnimationByName('swim');
+    if(SSL.sprite.state.current.name !== 'ultimate'){
+      SSL.sprite.state.setAnimationByName('ultimate');
+    }
+  }else if(this.collideCircle(FB)){
+    if(this.sprite.state.current.name === 'swim')this.sprite.state.setAnimationByName('dead');
+    this.dead = true;
+  }
+  Circle.prototype.render.call(this);
+};
+
+var lf1 = new LF({x:2500,y:1200});
 // console.log(fl1);
 // 1 fireryLobster  // fl.anim swim, dead
 // 2 giantClam     // gc.anim  swim, dead
@@ -173,18 +201,6 @@ var EnemyDatas = [
   , anim:'ulti'
   }
 ];
-
-
-var Enemy = function(enemyID, position){
-  var enemys = ['groundAnim','flAnim','gcAnim','jfAnim','lfAnim','octopusAnim','sgAnim','sfAnim','gfAnim','lobsterAnim','c1Anim','c2Anim','fireballAnim','ultiAnim'];
-  var enemyData = EnemyDatas[enemyID];
-  console.log(Loader.path[enemyData.name],position);
-  var sprite = new PIXI.Spine(Loader.path[enemyData.name]);
-  sprite.position = position;
-  sprite.scale = {x:0.5,y:0.5};
-  sprite.state.setAnimationByName(enemyData.anim,true);
-  Gamespace.sprite.addChild(sprite);
-};
 
 
 
