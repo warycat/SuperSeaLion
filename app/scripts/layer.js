@@ -90,7 +90,6 @@ Gamespace.init = function(){
   this.sprite.addChild(this.tiles);
   this.scale = 1;
   Layer.prototype.init.call(this);
-  this.setup();
 };
 
 Gamespace.edit = function(event){
@@ -98,15 +97,6 @@ Gamespace.edit = function(event){
   Gamespace.tiles.visible = Gamespace.isEditing;
 };
 
-Gamespace.setup = function(){
-  // var ssl = new PIXI.Spine(Loader.path.sfAnim);
-  // ssl.x = 500;
-  // ssl.y = 500;
-  // ssl.scale = {x:0.5,y:0.5};
-  // ssl.state.setAnimationByName('swim',true);
-  // this.sprite.addChild(ssl);
-  // this.ssl = ssl;
-};
 
 Gamespace.change = function(event){
   if(!Gamespace.isEditing) return;

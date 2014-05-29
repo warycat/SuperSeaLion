@@ -1,4 +1,93 @@
-var Enemy = function(){};
+var EnemyDatas = [
+  {
+    name:'groundAnim'
+  , anim:'default'
+  }
+, {
+    name:'flAnim'
+  , anim:'swim'
+  }
+, {
+    name:'gcAnim'
+  , anim:'swim'
+  }
+, {
+    name:'jfAnim'
+  , anim:'float'
+  }
+, {
+    name:'lfAnim'
+  , anim:'swim'
+  }
+, {
+    name:'octopusAnim'
+  , anim:'swim'
+  }
+, {
+    name:'sgAnim'
+  , anim:'fly'
+  }
+, {
+    name:'sfAnim'
+  , anim:'jab'
+  }
+, {
+    name:'gfAnim'
+  , anim:'swim'
+  }
+, {
+    name:'turtleAnim'
+  , anim:'walk'
+  }
+, {
+    name:'lobsterAnim'
+  , anim:'both_attack'
+  }
+, {
+    name:'c1Anim'
+  , anim:'both_attack'
+  }
+, {
+    name:'c2Anim'
+  , anim:'both_attack'
+  }
+, {
+    name:'fireballAnim'
+  , anim:'fire'
+  }
+, {
+    name:'ultiAnim'
+  , anim:'ulti'
+  }
+];
+
+
+var Enemy = function(enemyid,position){
+  switch(enemyid){
+    case 0:
+      break;
+    case 1:
+      break;
+    case 2:
+      break;
+    case 3:
+      break;
+    case 4:
+      break;
+    case 5:
+      break;
+    case 6:
+      break;
+    case 7:
+      break;
+    case 8:
+      break;
+    case 9:
+      break;
+    case 10:
+      break;
+  }
+};
 
 Enemy.prototype.init = function(id){
   var enemyData = EnemyDatas[id];
@@ -208,8 +297,66 @@ SF.prototype.render = function(){
 
 var sf1 = new SF({x:1700,y:1600});
 
+var GF = function(position){
+  Circle.prototype.constructor.call(this,position,20);
+};
+
+GF.prototype.init = function(){
+  this.A = 5;
+  this.t = 0;
+  Enemy.prototype.init.call(this,8);
+};
+
+GF.prototype.render = function(){
+  if(this.dead)return;
+  this.x = this.position.x + this.A * Math.cos(this.t);
+  this.sprite.position.y = this.y;
+  this.t+= 0.05;
+  Circle.prototype.render.call(this);
+};
+
+var gf1 = new GF({x:1500,y:1500});
+
+var Turtle = function(position){
+  Circle.prototype.constructor.call(this,position,20);
+};
+
+Turtle.prototype = new Circle();
+
+Turtle.prototype.init = function(){
+  this.t = 0;
+  this.counter = 0;
+  Enemy.prototype.init.call(this,9);
+};
+
+Turtle.prototype.render = function(){
+  if(this.dead)return;
+  if(this.counter){
+    this.vx = 0;
+  }else{
+    this.vx = -1;
+  }
+  if(this.collideCircle(FB)){
+    if(this.sprite.state.current.name !== 'dead'){
+      console.log(this.counter);
+      if(this.counter < 10){
+        this.sprite.state.setAnimationByName('defend');
+      }else{
+        this.sprite.state.setAnimationByName('dead');
+        this.dead = true;
+      }
+    }
+    this.counter++;
+  }
+  Circle.prototype.render.call(this);
+};
+
+var t1 = new Turtle({x:3000,y:950});
 
 
+var Lobster = function(){
+  
+};
 // console.log(fl1);
 // 1 fireryLobster  // fl.anim swim, dead
 // 2 giantClam     // gc.anim  swim, dead
@@ -229,68 +376,6 @@ var sf1 = new SF({x:1700,y:1600});
 // 16  claw1 //c1.anim   both_attack, top_attack, bottom_attack
 // 17  claw2 //c2.anim   both_attack, top_attack, bottom_attack
 
-var EnemyDatas = [
-  {
-    name:'groundAnim'
-  , anim:'default'
-  }
-, {
-    name:'flAnim'
-  , anim:'swim'
-  }
-, {
-    name:'gcAnim'
-  , anim:'swim'
-  }
-, {
-    name:'jfAnim'
-  , anim:'float'
-  }
-, {
-    name:'lfAnim'
-  , anim:'swim'
-  }
-, {
-    name:'octopusAnim'
-  , anim:'swim'
-  }
-, {
-    name:'sgAnim'
-  , anim:'fly'
-  }
-, {
-    name:'sfAnim'
-  , anim:'jab'
-  }
-, {
-    name:'gfAnim'
-  , anim:'swim'
-  }
-, {
-    name:'turtleAnim'
-  , anim:'walk'
-  }
-, {
-    name:'lobsterAnim'
-  , anim:'both_attack'
-  }
-, {
-    name:'c1Anim'
-  , anim:'both_attack'
-  }
-, {
-    name:'c2Anim'
-  , anim:'both_attack'
-  }
-, {
-    name:'fireballAnim'
-  , anim:'fire'
-  }
-, {
-    name:'ultiAnim'
-  , anim:'ulti'
-  }
-];
 
 
 
